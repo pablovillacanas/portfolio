@@ -25,6 +25,9 @@ export default function Portfoliobackground(mousePosition: {
     }
   }, [mixer]);
 
+  //TODO
+  //scale movement in %percent margins between viewport and mouse position
+
   camera.lookAt(
     nodes.dummyobject.position.x,
     nodes.dummyobject.position.y,
@@ -45,7 +48,7 @@ export default function Portfoliobackground(mousePosition: {
         />
         <group
           name="dummyobject"
-          position={[-0.92, 0.53, 1.09]}
+          position={[-0.99, 0.72, 1.49]}
           rotation={[-0.38, 1.49, -2.74]}
           scale={[1.18, 0.04, 8.42]}
         />
