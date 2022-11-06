@@ -2,7 +2,7 @@ import React from "react";
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 
-import Portfoliobackground from "./background/Portfoliobackground2";
+import Portfoliobackground from "./background/Portfoliobackground";
 import useMove from "../hooks/hooks";
 import useSize from "../hooks/useSize";
 import { ThemeProvider } from "styled-components";

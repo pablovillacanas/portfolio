@@ -162,7 +162,7 @@ export default function Portfoliobackground(mousePosition: {
           name="gridplane"
           geometry={(nodes.gridplane as any).geometry}
           material={materials.Gridplane}
-          position={[-26.94, 0.01, -8.64]}
+          position={[-23.71, -0.02, -8.455]}
           rotation={[0, -0.07, 0]}
           scale={[37.55, 1, 32.55]}
           receiveShadow
