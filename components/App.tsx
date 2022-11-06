@@ -2,7 +2,7 @@ import React from "react";
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 
-import Portfoliobackground from "./background/Portfoliobackground";
+import Portfoliobackground from "./background/Portfoliobackground2";
 import useMove from "../hooks/hooks";
 import useSize from "../hooks/useSize";
 import { ThemeProvider } from "styled-components";
@@ -15,7 +15,7 @@ const theme = {
     primary: "#042940",
     primaryVariant: "#005C53",
     secondary: "#9FC131",
-    secondaryVariant: "#DBF227",
+    radiactiveYellow: "#DBF227",
     terciary: "#D6D58E",
   },
   fonts: {
@@ -43,8 +43,8 @@ export default function App() {
       >
         <Sidebar />
         <WebContent
-          title={"Hi! Im Pablo!"}
-          subtitle={"Lets make amazing things together."}
+          title={"Hi!"}
+          subtitle={"Let's make amazing things together!"}
         >
           <div
             style={{

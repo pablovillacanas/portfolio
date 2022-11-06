@@ -31,6 +31,7 @@ export default function Portfoliobackground(mousePosition: {
     nodes.dummyobject.position.z
   );
 
+  camera.updateProjectionMatrix();
   return (
     <group ref={group} dispose={null}>
       <group name="Scene">
@@ -38,7 +39,7 @@ export default function Portfoliobackground(mousePosition: {
           position={[10.63, 6.35, -5.61]}
           rotation={[-1.84, 0.6, 1.93]}
           scale={[88.31, 339.47, 232.82]}
-          intensity={0.3}
+          intensity={0.2}
           castShadow={true}
           shadow-mapSize-height={512}
           shadow-mapSize-width={512}
@@ -63,8 +64,8 @@ export default function Portfoliobackground(mousePosition: {
           name="stack2"
           geometry={(nodes.stack2 as any).geometry}
           material={materials.Opaque}
-          position={[0, 0.63, -0.11]}
-          rotation={[-0.02, 1.49, -3.13]}
+          position={[0, 0.63, -0.105]}
+          rotation={[-0.0238, 1.49, -3.129]}
           scale={2.89}
           castShadow={true}
           receiveShadow
@@ -74,7 +75,7 @@ export default function Portfoliobackground(mousePosition: {
           geometry={(nodes["stack1-2"] as any).geometry}
           material={materials.Opaque}
           position={[0, 1.33, -0.12]}
-          rotation={[0, 1.5, 3.13]}
+          rotation={[0.02, 1.5, 3.12]}
           scale={2.89}
           castShadow={true}
           receiveShadow
@@ -156,7 +157,6 @@ export default function Portfoliobackground(mousePosition: {
           position={[-0.22, 1.81, 0]}
           rotation={[-0.5, 1.47, 0.49]}
           scale={2.89}
-          castShadow={true}
         />
         <mesh
           name="gridplane"

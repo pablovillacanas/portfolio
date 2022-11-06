@@ -10,8 +10,6 @@ type Props = {
 const WebContent = (props: Props) => {
   const theme: any = useTheme();
 
-  console.log("Current theme: ", theme);
-
   return (
     <div
       style={{
@@ -28,7 +26,7 @@ const WebContent = (props: Props) => {
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          color: `${theme.colors.secondaryVariant}`,
+          color: `${theme.colors.radiactiveYellow}`,
         }}
       >
         <div style={{ fontSize: 100 }}>{props.title}</div>
