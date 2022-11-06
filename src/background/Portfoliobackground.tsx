@@ -26,11 +26,9 @@ export default function Portfoliobackground(mousePosition: {
   }, [mixer]);
 
   //TODO
-  //scale movement in %percent margins between viewport and mouse position
-
   camera.lookAt(
-    nodes.dummyobject.position.x,
-    nodes.dummyobject.position.y,
+    nodes.dummyobject.position.x + mousePosition.x / 10000,
+    nodes.dummyobject.position.y + mousePosition.y / 5000,
     nodes.dummyobject.position.z
   );
 
@@ -155,6 +153,7 @@ export default function Portfoliobackground(mousePosition: {
           name="curverside"
           geometry={(nodes.curverside as any).geometry}
           material={materials.Transparent}
+          renderOrder={1}
           position={[-0.22, 1.81, 0]}
           rotation={[-0.5, 1.47, 0.49]}
           scale={2.89}
