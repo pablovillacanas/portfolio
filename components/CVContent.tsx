@@ -9,7 +9,15 @@ const CVContent = () => {
         <li>High skills in React and frontend.</li>
         <li>Medium skills in Backend (Rails, Nodejs).</li>
         <li>Experience in Kubernetes and CI/CD.</li>
-        <li>Java expert certifications.</li>
+        <li>
+          <a
+            href="https://www.credly.com/badges/f4a464fd-42a2-410d-9711-822e6afc42ba/public_url"
+            target={"_blank"}
+            style={{ color: "#9FC131" }}
+          >
+            Java expert certification
+          </a>
+        </li>
         <li>Agile development.</li>
         <li>Soft skill (leadership and teamwork).</li>
       </ul>
