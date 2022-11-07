@@ -1,14 +1,55 @@
 import React from "react";
 import Button from "./Button";
+import { BsLinkedin, BsGithub } from "react-icons/bs";
 
 const ContactContent = () => {
   return (
     <div>
       <p>Well maybe two :P</p>
-      <p>You can contact me in a variety of forms</p>
-      <p>Email</p>
-      <p>Linkedin</p>
-      <Button text={"Contact!"}></Button>
+      <Button
+        text={"Mail me!"}
+        onClick={() => {
+          location.href =
+            "mailto:pablo.villacanas@gmail.com" +
+            "&subject=" +
+            "Hi!" +
+            "&body=" +
+            "";
+        }}
+      ></Button>
+      <div
+        style={{
+          display: "flex",
+          gap: "1em",
+          alignItems: "center",
+          margin: "1em 0em",
+          cursor: "pointer",
+        }}
+        onClick={() => {
+          window.open(
+            "https://www.linkedin.com/in/pablo-villacanas/",
+            "_newtab"
+          );
+        }}
+      >
+        <BsLinkedin size={32} />
+        <span>Reach me on Linkedin</span>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          gap: "1em",
+          alignItems: "center",
+          marginBottom: "1em",
+          cursor: "pointer",
+        }}
+        onClick={() => {
+          window.open("https://github.com/pablovillacanas", "_newtab");
+        }}
+      >
+        <BsGithub size={32} />
+        <span>Github</span>
+      </div>
     </div>
   );
 };

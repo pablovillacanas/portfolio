@@ -13,11 +13,13 @@ const Button = (props: Props) => {
         height: "1.5em",
         textAlign: "center",
         width: "fit-content",
+        cursor: "pointer",
         padding: "0.5em",
         borderRadius: "3px",
         backgroundColor: theme.colors.radiactiveYellow,
         color: "black",
       }}
+      onClick={() => props.onClick()}
     >
       {props.text}
     </div>
