@@ -10,6 +10,7 @@ import WebContent from "./WebContent";
 import HomeContent from "./HomeContent";
 import ContactContent from "./ContactContent";
 import CVContent from "./CVContent";
+import Dumb from "./Dumb";
 
 const theme = {
   colors: {
@@ -80,15 +81,19 @@ export default function App() {
         style={{
           position: "relative",
           height: "100%",
+          backgroundColor: "#041327",
         }}
         onMouseMove={handleMouseMove}
       >
         <Canvas
           shadows
-          style={{ minHeight: "100%", minWidth: "100%" }}
+          style={{
+            minHeight: "100%",
+            minWidth: "100%",
+          }}
           id="canvasback"
         >
-          <Suspense fallback={null}>
+          <Suspense>
             <Portfoliobackground x={x} y={y} />
           </Suspense>
         </Canvas>
