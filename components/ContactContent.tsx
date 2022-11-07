@@ -5,7 +5,10 @@ import { BsLinkedin, BsGithub } from "react-icons/bs";
 const ContactContent = () => {
   return (
     <div>
-      <p>Well maybe two :P</p>
+      <p>
+        Don't hesitate to get in touch!. You can mail me directly or reach me in
+        my professional social networks :)
+      </p>
       <Button
         text={"Mail me!"}
         onClick={() => {
