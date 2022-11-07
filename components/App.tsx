@@ -10,7 +10,6 @@ import WebContent from "./WebContent";
 import HomeContent from "./HomeContent";
 import ContactContent from "./ContactContent";
 import CVContent from "./CVContent";
-import Dumb from "./Dumb";
 
 const theme = {
   colors: {
