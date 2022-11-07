@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "./Button";
-import { BsLinkedin, BsGithub } from "react-icons/bs";
+import { BsLinkedin } from "react-icons/bs";
 
 const ContactContent = () => {
   return (
