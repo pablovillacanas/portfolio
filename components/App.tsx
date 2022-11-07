@@ -1,14 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 
 import Portfoliobackground from "./background/Portfoliobackground";
 import useMove from "../hooks/hooks";
-import useSize from "../hooks/useSize";
 import { ThemeProvider } from "styled-components";
 import Sidebar from "./Sidebar";
 import WebContent from "./WebContent";
-import hexToRgba from "hex-to-rgba";
+import HomeContent from "./HomeContent";
+import ContactContent from "./ContactContent";
+import CVContent from "./CVContent";
 
 const theme = {
   colors: {
@@ -27,10 +28,25 @@ const theme = {
 export default function App() {
   const { x, y, handleMouseMove } = useMove();
   const target = React.useRef(null);
-  const size = useSize(target);
+  const [view, setView] = useState<"home" | "contact" | "cv">("home");
 
-  console.log("size.height", size.height);
-
+  const viewMap = {
+    home: {
+      title: "Hi, I'm Pablo!",
+      subtitle: "Know me a little bit more :)",
+      content: <HomeContent />,
+    },
+    contact: {
+      title: "Contact me!",
+      subtitle: "We are at 1 click distance!",
+      content: <ContactContent />,
+    },
+    cv: {
+      title: "Skillset!",
+      subtitle: "Let's make amazing things together!",
+      content: <CVContent />,
+    },
+  };
   return (
     <ThemeProvider theme={theme}>
       <div
@@ -44,55 +60,19 @@ export default function App() {
           gap: "2em",
         }}
       >
-        <Sidebar />
+        <Sidebar onClick={setView} />
         <WebContent
-          title={"Hi, I'm Pablo!"}
-          subtitle={"Let's make amazing things together!"}
+          title={viewMap[view].title}
+          subtitle={viewMap[view].subtitle}
         >
           <div
             style={{
               color: "white",
-              padding: "1em",
+              fontSize: "1.1em",
               borderRadius: "8px",
             }}
           >
-            <p>
-              After four years studying Psychology at the University of Santiago
-              de Compostela and successfully graduating, I decided to reorient
-              my professional career towards my true passion: software
-              development.
-            </p>
-            <p>
-              It was not the first time that I was faced with a source code.
-              Since I was young, I stood out in technology subjects and
-              specifically in those that had to do with programming. After a
-              career that did not give me professional opportunities, but that
-              served me for many other things (group work, research, etc.) I
-              decided to try my luck with an extensive Java course.
-            </p>
-            <p>
-              Since then I have been researching and perfecting my skills in
-              this field. I am currently studying Cross-Platform Application
-              Development with the intention of officially certifying my
-              knowledge, but before that, I have independently invested hundreds
-              of hours in learning various technologies and getting used to
-              them, with special emphasis on the aforementioned Java language,
-              which It has allowed me to obtain several official certifications.
-            </p>
-            <p>
-              Aparte de los estudios reglados que estoy realizando con buenos
-              resultados, no dejo de intentar aprender nuevas tecnologías, desde
-              la administracion de sistemas Linux hasta frameworks como Spring y
-              otros entornos de desarrollo como Node, por poner algunos
-              ejemplos.
-            </p>
-            <p>
-              Actualmente trabajo en Situm, una empresa enfocada en soluciones
-              en localización precisa de activos móviles en interiores, donde
-              estoy mejorando todos los días en mis aptitudes como
-              desarrollador, tanto desde la perspectiva técnica como de análisis
-              y trabajo en equipo.
-            </p>{" "}
+            {viewMap[view].content}
           </div>
         </WebContent>
       </div>
