@@ -37,15 +37,15 @@ export default function Portfoliobackground(mousePosition: {
         <directionalLight
           position={[10.63, 6.35, -5.61]}
           rotation={[-1.84, 0.6, 1.93]}
-          scale={[88.31, 339.47, 232.82]}
-          intensity={0.3}
+          scale={[1, 1, 1]}
+          intensity={0.8}
           castShadow={true}
           shadow-mapSize-height={512}
           shadow-mapSize-width={512}
         />
         <group
           name="dummyobject"
-          position={[-0.92, 0.53, 1.09]}
+          position={[-6.9, 0.32, 1.09]}
           rotation={[-0.38, 1.49, -2.74]}
           scale={[1.18, 0.04, 8.42]}
         />
@@ -53,7 +53,7 @@ export default function Portfoliobackground(mousePosition: {
           name="Camera"
           makeDefault={true}
           far={100}
-          near={0.1}
+          near={1}
           fov={35.86}
           position={[8.17, 3.63, 4.02]}
           rotation={[-0.81, 1.13, 0.76]}
@@ -162,9 +162,45 @@ export default function Portfoliobackground(mousePosition: {
           name="gridplane"
           geometry={(nodes.gridplane as any).geometry}
           material={materials.Gridplane}
-          position={[-23.71, -0.02, -8.455]}
+          position={[-10.71, 0, 0.455]}
           rotation={[0, -0.07, 0]}
-          scale={[37.55, 1, 32.55]}
+          scale={[15, 1, 15]}
+          receiveShadow
+        />
+        <mesh
+          name="gridplane"
+          geometry={(nodes.gridplane as any).geometry}
+          material={materials.Gridplane}
+          position={[-20.71, 0, 0.64]}
+          rotation={[0, -0.07, 0]}
+          scale={[15, 1, 15]}
+          receiveShadow
+        />
+        <mesh
+          name="gridplane"
+          geometry={(nodes.gridplane as any).geometry}
+          material={materials.Gridplane}
+          position={[-10.66, 0, -12.93]}
+          rotation={[0, -0.07, 0]}
+          scale={[15, 1, 15]}
+          receiveShadow
+        />
+        <mesh
+          name="gridplane"
+          geometry={(nodes.gridplane as any).geometry}
+          material={materials.Gridplane}
+          position={[-20.66, 0, -12.93]}
+          rotation={[0, -0.07, 0]}
+          scale={[15, 1, 15]}
+          receiveShadow
+        />
+        <mesh
+          name="gridplane"
+          geometry={(nodes.gridplane as any).geometry}
+          material={materials.Gridplane}
+          position={[-30.66, 0, -22.93]}
+          rotation={[0, -0.07, 0]}
+          scale={[15, 1, 15]}
           receiveShadow
         />
       </group>

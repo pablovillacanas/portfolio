@@ -49,7 +49,6 @@ export default function App() {
           <div
             style={{
               color: "white",
-              backgroundColor: hexToRgba(theme.colors.primary, 0.7),
               padding: "1em",
               borderRadius: "8px",
               height: "inherit",
@@ -102,7 +101,6 @@ export default function App() {
       >
         <Canvas shadows style={{ minHeight: "100%", minWidth: "100%" }}>
           <Suspense fallback={null}>
-            <spotLight position={[50, 50, 10]} angle={0.15} penumbra={1} />
             <Portfoliobackground x={x} y={y} />
           </Suspense>
         </Canvas>
