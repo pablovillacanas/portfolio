@@ -129,6 +129,7 @@ export default function Portfoliobackground(mousePosition: {
           position={[0, 2.37, -0.06]}
           rotation={[-0.4, 1.49, -2.74]}
           scale={2.89}
+          castShadow={true}
         />
         <mesh
           name="cover2"

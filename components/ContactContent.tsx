@@ -38,21 +38,6 @@ const ContactContent = () => {
         <BsLinkedin size={32} />
         <span>Reach me on Linkedin</span>
       </div>
-      <div
-        style={{
-          display: "flex",
-          gap: "1em",
-          alignItems: "center",
-          marginBottom: "1em",
-          cursor: "pointer",
-        }}
-        onClick={() => {
-          window.open("https://github.com/pablovillacanas", "_newtab");
-        }}
-      >
-        <BsGithub size={32} />
-        <span>Github</span>
-      </div>
     </div>
   );
 };

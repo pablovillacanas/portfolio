@@ -2,7 +2,7 @@ import React from "react";
 import { useTheme } from "styled-components";
 import {
   BsHouseDoor,
-  BsCode,
+  BsGithub,
   BsEnvelope,
   BsFileEarmarkPerson,
 } from "react-icons/bs";
@@ -45,10 +45,12 @@ const Sidebar = (props: Props) => {
         onClick={() => props.onClick("cv")}
         style={{ cursor: "pointer" }}
       />
-      <BsCode
+      <BsGithub
         size={40}
         color={theme.colors.primaryVariant}
-        onClick={() => props.onClick("contact")}
+        onClick={() => {
+          window.open("https://github.com/pablovillacanas", "_newtab");
+        }}
         style={{ cursor: "pointer" }}
       />
     </div>
