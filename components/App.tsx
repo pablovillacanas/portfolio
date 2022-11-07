@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 
@@ -29,9 +29,12 @@ export default function App() {
   const target = React.useRef(null);
   const size = useSize(target);
 
+  console.log("size.height", size.height);
+
   return (
     <ThemeProvider theme={theme}>
       <div
+        ref={target}
         style={{
           width: "50%",
           zIndex: 1,
@@ -43,7 +46,7 @@ export default function App() {
       >
         <Sidebar />
         <WebContent
-          title={"Hi!"}
+          title={"Hi, I'm Pablo!"}
           subtitle={"Let's make amazing things together!"}
         >
           <div
@@ -51,7 +54,6 @@ export default function App() {
               color: "white",
               padding: "1em",
               borderRadius: "8px",
-              height: "inherit",
             }}
           >
             <p>
@@ -95,11 +97,17 @@ export default function App() {
         </WebContent>
       </div>
       <div
-        ref={target}
-        style={{ position: "relative", width: size?.width, height: 968 }}
+        style={{
+          position: "relative",
+          height: "100%",
+        }}
         onMouseMove={handleMouseMove}
       >
-        <Canvas shadows style={{ minHeight: "100%", minWidth: "100%" }}>
+        <Canvas
+          shadows
+          style={{ minHeight: "100%", minWidth: "100%" }}
+          id="canvasback"
+        >
           <Suspense fallback={null}>
             <Portfoliobackground x={x} y={y} />
           </Suspense>

@@ -5,9 +5,9 @@ import styles from "../styles/Home.module.css";
 export default function Home() {
   return (
     <div className={styles.container}>
-      <main>
+      <div className="main" style={{ height: "100%" }}>
         <App></App>
-      </main>
+      </div>
     </div>
   );
 }

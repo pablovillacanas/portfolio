@@ -26,9 +26,9 @@ export default function Portfoliobackground(mousePosition: {
 
   //TODO
   camera.lookAt(
-    nodes.dummyobject.position.x + mousePosition.x / 10000,
-    nodes.dummyobject.position.y + mousePosition.y / 5000,
-    nodes.dummyobject.position.z
+    nodes.dummyobject.position.x + mousePosition.y / 5000,
+    nodes.dummyobject.position.y,
+    nodes.dummyobject.position.z + mousePosition.x / 5000
   );
 
   return (
