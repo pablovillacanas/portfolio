@@ -49,7 +49,7 @@ export default function App() {
   const viewMap = {
     home: {
       title: "Hi, I'm Pablo!",
-      subtitle: "Know me a little bit more :)",
+      subtitle: "Get to know me a little better :D",
       content: <HomeContent />,
     },
     contact: {
