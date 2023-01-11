@@ -13,6 +13,7 @@ import CVContent from "./CVContent";
 
 export interface CustomTheme {
   colors: {
+    background: string;
     primary: string;
     primaryVariant: string;
     secondary: string;
@@ -28,6 +29,7 @@ export interface CustomTheme {
 
 const theme: CustomTheme = {
   colors: {
+    background: "#010024",
     primary: "#042940",
     primaryVariant: "#005C53",
     secondary: "#9FC131",
