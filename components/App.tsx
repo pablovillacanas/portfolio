@@ -64,7 +64,6 @@ export default function App() {
     },
   };
 
-  console.log("[x,y]", [x, y]);
   return (
     <ThemeProvider theme={theme}>
       <div
@@ -77,6 +76,9 @@ export default function App() {
           display: "flex",
           gap: "2em",
           color: theme.colors.text,
+          background: `linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(2,0,36,1) ${
+            x / 35 + 35
+          }%, rgba(0,212,255,0) 100%)`,
         }}
         onMouseMove={handleMouseMove}
       >
