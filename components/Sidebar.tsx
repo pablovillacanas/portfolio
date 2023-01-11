@@ -1,12 +1,9 @@
 import React from "react";
 import { useTheme } from "styled-components";
-import {
-  BsHouseDoor,
-  BsGithub,
-  BsEnvelope,
-  BsFileEarmarkPerson,
-} from "react-icons/bs";
+import { BsHouseDoorFill, BsGithub, BsFileEarmarkPerson } from "react-icons/bs";
 
+import { AiFillHome } from "react-icons/ai";
+import { GrMail } from "react-icons/gr";
 type Props = {
   value?: string;
   onClick: (v: "home" | "contact" | "cv") => void;
@@ -27,13 +24,13 @@ const Sidebar = (props: Props) => {
         justifyContent: "center",
       }}
     >
-      <BsHouseDoor
+      <BsHouseDoorFill
         size={40}
         color={theme.colors.primaryVariant}
         onClick={() => props.onClick("home")}
         style={{ cursor: "pointer" }}
       />
-      <BsEnvelope
+      <GrMail
         size={40}
         color={theme.colors.primaryVariant}
         onClick={() => props.onClick("contact")}

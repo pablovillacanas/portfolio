@@ -22,6 +22,7 @@ const CVContent = () => {
         </li>
         <li>Agile development.</li>
         <li>Soft skill (leadership and teamwork).</li>
+        <li>Focused on delivery.</li>
       </ul>
       <Link
         href="./CV-PabloVillacanas.pdf"
