@@ -2,7 +2,6 @@ import React from "react";
 import { useTheme } from "styled-components";
 import { BsHouseDoorFill, BsGithub, BsFileEarmarkPerson } from "react-icons/bs";
 
-import { AiFillHome } from "react-icons/ai";
 import { GrMail } from "react-icons/gr";
 type Props = {
   value?: string;
