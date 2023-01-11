@@ -97,6 +97,21 @@ export default function App() {
             {viewMap[view].content}
           </div>
         </WebContent>
+        <div
+          style={{
+            width: "100%",
+            height: "30px",
+            position: "fixed",
+            bottom: "0px",
+            textAlign: "right",
+          }}
+        >
+          <span style={{ fontSize: "0.8em", paddingRight: "1em" }}>
+            See the code on{" "}
+            <a href="https://github.com/pablovillacanas/portfolio">Github</a>.
+            Deployed on Vercel
+          </span>
+        </div>
       </div>
       <div
         style={{
