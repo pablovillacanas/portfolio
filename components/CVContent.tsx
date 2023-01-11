@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
+import Link from "next/link";
 import React from "react";
 import Button from "./Button";
 
@@ -21,12 +23,13 @@ const CVContent = () => {
         <li>Agile development.</li>
         <li>Soft skill (leadership and teamwork).</li>
       </ul>
-      <Button
-        text={"Download the full CV"}
-        onClick={function (): void {
-          throw new Error("Function not implemented.");
-        }}
-      ></Button>
+      <Link
+        href="./CV-PabloVillacanas.pdf"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <Button text={"Download the full CV"} onClick={() => {}}></Button>
+      </Link>
     </div>
   );
 };

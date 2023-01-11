@@ -11,13 +11,29 @@ import HomeContent from "./HomeContent";
 import ContactContent from "./ContactContent";
 import CVContent from "./CVContent";
 
-const theme = {
+export interface CustomTheme {
+  colors: {
+    primary: string;
+    primaryVariant: string;
+    secondary: string;
+    radiactiveYellow: string;
+    terciary: string;
+    text: string;
+  };
+  fonts: {
+    material: string;
+    default: string;
+  };
+}
+
+const theme: CustomTheme = {
   colors: {
     primary: "#042940",
     primaryVariant: "#005C53",
     secondary: "#9FC131",
     radiactiveYellow: "#DBF227",
     terciary: "#D6D58E",
+    text: "#dddddd",
   },
   fonts: {
     material: "Roboto",

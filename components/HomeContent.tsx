@@ -1,8 +1,11 @@
 import React from "react";
+import { useTheme } from "styled-components";
+import { CustomTheme } from "./App";
 
 const HomeContent = () => {
+  const theme = useTheme() as CustomTheme;
   return (
-    <>
+    <div style={{ color: theme.colors.text }}>
       <p>
         After four years studying Psychology at the University of Santiago de
         Compostela and successfully graduating, I decided to reorient my
@@ -37,7 +40,7 @@ const HomeContent = () => {
         which traders can make their markets decissions. In my spare time I also
         work as freelancer.
       </p>
-    </>
+    </div>
   );
 };
 
