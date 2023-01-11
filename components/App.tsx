@@ -63,6 +63,8 @@ export default function App() {
       content: <CVContent />,
     },
   };
+
+  console.log("[x,y]", [x, y]);
   return (
     <ThemeProvider theme={theme}>
       <div
@@ -74,7 +76,9 @@ export default function App() {
           position: "absolute",
           display: "flex",
           gap: "2em",
+          color: theme.colors.text,
         }}
+        onMouseMove={handleMouseMove}
       >
         <Sidebar onClick={setView} />
         <WebContent
