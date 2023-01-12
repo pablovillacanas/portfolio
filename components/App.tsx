@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 
@@ -11,7 +11,6 @@ import HomeContent from "./HomeContent";
 import ContactContent from "./ContactContent";
 import CVContent from "./CVContent";
 import { useRouter } from "next/router";
-import { GrStreetView } from "react-icons/gr";
 
 export interface CustomTheme {
   colors: {
