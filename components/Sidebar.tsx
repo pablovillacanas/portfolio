@@ -5,14 +5,16 @@ import Tooltip from "./Tooltip";
 
 import { GrMail } from "react-icons/gr";
 import { CustomTheme } from "./App";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 type Props = {
   value?: string;
-  onClick: (v: "home" | "contact" | "cv") => void;
 };
 
 const Sidebar = (props: Props) => {
   const theme = useTheme() as CustomTheme;
+  const router = useRouter();
   return (
     <div
       style={{
@@ -27,28 +29,31 @@ const Sidebar = (props: Props) => {
       }}
     >
       <Tooltip content="Home">
-        <BsHouseDoorFill
-          size={40}
-          color={theme.colors.primaryVariant}
-          onClick={() => props.onClick("home")}
-          style={{ cursor: "pointer" }}
-        />
+        <Link href={"/"} shallow={true}>
+          <BsHouseDoorFill
+            size={40}
+            color={theme.colors.primaryVariant}
+            style={{ cursor: "pointer" }}
+          />
+        </Link>
       </Tooltip>
       <Tooltip content="Contact">
-        <GrMail
-          size={40}
-          color={theme.colors.primaryVariant}
-          onClick={() => props.onClick("contact")}
-          style={{ cursor: "pointer" }}
-        />
+        <Link href={"/?section=contact"} shallow={true}>
+          <GrMail
+            size={40}
+            color={theme.colors.primaryVariant}
+            style={{ cursor: "pointer" }}
+          />
+        </Link>
       </Tooltip>
       <Tooltip content="CV">
-        <BsFileEarmarkPerson
-          size={40}
-          color={theme.colors.primaryVariant}
-          onClick={() => props.onClick("cv")}
-          style={{ cursor: "pointer" }}
-        />
+        <Link href={"/?section=cv"} shallow={true}>
+          <BsFileEarmarkPerson
+            size={40}
+            color={theme.colors.primaryVariant}
+            style={{ cursor: "pointer" }}
+          />
+        </Link>
       </Tooltip>
       <Tooltip content="Github">
         <BsGithub
@@ -60,6 +65,7 @@ const Sidebar = (props: Props) => {
           style={{ cursor: "pointer" }}
         />
       </Tooltip>
+      {router.query.value}
     </div>
   );
 };

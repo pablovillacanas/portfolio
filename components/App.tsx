@@ -10,6 +10,8 @@ import WebContent from "./WebContent";
 import HomeContent from "./HomeContent";
 import ContactContent from "./ContactContent";
 import CVContent from "./CVContent";
+import { useRouter } from "next/router";
+import { GrStreetView } from "react-icons/gr";
 
 export interface CustomTheme {
   colors: {
@@ -46,24 +48,30 @@ const theme: CustomTheme = {
 export default function App() {
   const { x, y, handleMouseMove } = useMove();
   const target = React.useRef(null);
-  const [view, setView] = useState<"home" | "contact" | "cv">("home");
+  // const [view, setView] = useState<"home" | "contact" | "cv">("home");
+  const router = useRouter();
 
-  const viewMap = {
-    home: {
-      title: "Hi, I'm Pablo!",
-      subtitle: "Get to know me a little better :D",
-      content: <HomeContent />,
-    },
-    contact: {
-      title: "Contact me!",
-      subtitle: "We are at 1 click distance!",
-      content: <ContactContent />,
-    },
-    cv: {
-      title: "Skillset!",
-      subtitle: "Let's make amazing things together!",
-      content: <CVContent />,
-    },
+  const viewMap = (query?: string | string[]) => {
+    switch (query) {
+      case "cv":
+        return {
+          title: "Skillset!",
+          subtitle: "Let's make amazing things together!",
+          content: <CVContent />,
+        };
+      case "contact":
+        return {
+          title: "Contact me!",
+          subtitle: "We are at 1 click distance!",
+          content: <ContactContent />,
+        };
+      default:
+        return {
+          title: "Hi, I'm Pablo!",
+          subtitle: "Get to know me a little better :D",
+          content: <HomeContent />,
+        };
+    }
   };
 
   return (
@@ -84,10 +92,10 @@ export default function App() {
         }}
         onMouseMove={handleMouseMove}
       >
-        <Sidebar onClick={setView} />
+        <Sidebar />
         <WebContent
-          title={viewMap[view].title}
-          subtitle={viewMap[view].subtitle}
+          title={viewMap(router.query.section).title}
+          subtitle={viewMap(router.query.section).subtitle}
         >
           <div
             style={{
@@ -96,7 +104,7 @@ export default function App() {
               borderRadius: "8px",
             }}
           >
-            {viewMap[view].content}
+            {viewMap(router.query.section).content}
           </div>
         </WebContent>
         <div
