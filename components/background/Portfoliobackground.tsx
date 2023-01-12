@@ -31,6 +31,13 @@ export default function Portfoliobackground(mousePosition: {
     nodes.dummyobject.position.z + mousePosition.x / 5000
   );
 
+  (mousePosition.x || mousePosition.y) &&
+    camera.position.set(
+      8.17 + Math.cos((mousePosition.x * 2) / window.innerWidth - 1),
+      3.63 + Math.cos((mousePosition.y * 2) / window.innerHeight - 1),
+      4.02 + Math.sin((mousePosition.x * 2) / window.innerWidth - 1) * 6
+    );
+
   return (
     <group ref={group} dispose={null}>
       <group name="Scene">
@@ -200,6 +207,24 @@ export default function Portfoliobackground(mousePosition: {
           geometry={(nodes.gridplane as any).geometry}
           material={materials.Gridplane}
           position={[-30.66, 0, -22.93]}
+          rotation={[0, -0.07, 0]}
+          scale={[15, 1, 15]}
+          receiveShadow
+        />
+        <mesh
+          name="gridplane"
+          geometry={(nodes.gridplane as any).geometry}
+          material={materials.Gridplane}
+          position={[-19.46, 0, -27.73]}
+          rotation={[0, -0.07, 0]}
+          scale={[15, 1, 15]}
+          receiveShadow
+        />
+        <mesh
+          name="gridplane"
+          geometry={(nodes.gridplane as any).geometry}
+          material={materials.Gridplane}
+          position={[16.15, 0, -2.12]}
           rotation={[0, -0.07, 0]}
           scale={[15, 1, 15]}
           receiveShadow
