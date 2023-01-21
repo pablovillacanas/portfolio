@@ -19,18 +19,6 @@ const inAnimation = keyframes`
   }
 `;
 
-const outAnimation = keyframes`
-  from {
-    transform: translateX(0px);
-    opacity: 1;
-
-  }
-  to {
-    transform: translateX(-300px);
-    opacity: 0.2;
-  }
-`;
-
 const Title = styled.div`
   position: relative;
   font-size: 100px;
