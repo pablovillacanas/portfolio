@@ -60,7 +60,7 @@ export default function App() {
         };
       case "contact":
         return {
-          title: "Contact me!",
+          title: "Let's get in touch!",
           subtitle: "We are at 1 click distance!",
           content: <ContactContent />,
         };
