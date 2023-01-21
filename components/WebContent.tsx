@@ -1,5 +1,5 @@
-import React from "react";
-import { useTheme } from "styled-components";
+import React, { useEffect } from "react";
+import styled, { keyframes, useTheme } from "styled-components";
 
 type Props = {
   children: JSX.Element;
@@ -7,11 +7,56 @@ type Props = {
   subtitle: string;
 };
 
+const inAnimation = keyframes`
+  from {
+    transform: translateX(-300px);
+    opacity: 0.2;
+  }
+
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+`;
+
+const outAnimation = keyframes`
+  from {
+    transform: translateX(0px);
+    opacity: 1;
+
+  }
+  to {
+    transform: translateX(-300px);
+    opacity: 0.2;
+  }
+`;
+
+const Title = styled.div`
+  position: relative;
+  font-size: 100px;
+  animation: 0.6s ${inAnimation} ease-out;
+`;
+
+const SubTitle = styled.div`
+  position: relative;
+  font-size: 36px;
+  animation: 0.8s ${inAnimation} ease-out;
+`;
+
+const Content = styled.div`
+  animation: 1s ${inAnimation} ease-out;
+`;
+
 const WebContent = (props: Props) => {
   const theme: any = useTheme();
 
+  useEffect(() => {
+    console.log(props.title);
+  }, [props.title]);
+
   return (
     <div
+      key={props.title}
       style={{
         fontFamily: "Quantico, sans-serif",
         width: "100%",
@@ -29,10 +74,10 @@ const WebContent = (props: Props) => {
           color: `${theme.colors.radiactiveYellow}`,
         }}
       >
-        <div style={{ fontSize: 100 }}>{props.title}</div>
-        <div style={{ fontSize: 36 }}>{props.subtitle}</div>
+        <Title>{props.title}</Title>
+        <SubTitle>{props.subtitle}</SubTitle>
       </div>
-      <div style={{ flex: 3 }}>{props.children}</div>
+      <Content style={{ flex: 3 }}>{props.children}</Content>
     </div>
   );
 };
