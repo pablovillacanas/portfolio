@@ -31,6 +31,8 @@
     "babel-plugin-styled-components": "^2.0.7",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "lint-staged": "^13.0.3",
+    "husky": "4",
     "prettier": "^2.7.1",
     "typescript": "^4.8.4"
   },
@@ -38,6 +40,20 @@
     "start": "next start",
     "build": "next build",
     "dev": "next dev"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,md}": [
+      "prettier --end-of-line \"lf\" --write",
+      "eslint --rule {\"no-console\":[\"error\",{\"allow\":[\"time\",\"warn\",\"info\",\"error\"]}]} --fix"
+    ],
+    "src/**/*.{css,scss}": [
+      "prettier --write"
+    ]
   },
   "eslintConfig": {
     "extends": [
