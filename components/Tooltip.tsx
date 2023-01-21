@@ -20,7 +20,7 @@ export const Tooltip = (props: Props) => {
       // border={theme.colors.radiactiveYellow}
       padding={12}
     >
-      {props.children}
+      <div style={{ width: "100%" }}>{props.children}</div>
     </SimpleTooltip>
   );
 };

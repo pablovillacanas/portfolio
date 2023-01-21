@@ -66,8 +66,8 @@ export default function App() {
         };
       default:
         return {
-          title: "Hi, I'm Pablo!",
-          subtitle: "Get to know me a little better :D",
+          title: true ? "" : "Hi, I'm Pablo!",
+          subtitle: true ? "" : "Get to know me a little better :D",
           content: <HomeContent />,
         };
     }
