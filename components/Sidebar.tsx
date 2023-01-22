@@ -32,6 +32,8 @@ const Sidebar = () => {
         width: "4%",
         minWidth: "60px",
         backgroundColor: `${theme.colors.radiactiveYellow}`,
+        position: "fixed",
+        height: "100vh",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",

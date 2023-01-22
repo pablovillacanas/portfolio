@@ -15,3 +15,5 @@ a.nostyle:visited {
     text-decoration: inherit;
     color: inherit;
 }  
+
+::-webkit-scrollbar {display:none;}

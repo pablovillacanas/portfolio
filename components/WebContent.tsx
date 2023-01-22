@@ -32,6 +32,7 @@ const SubTitle = styled.div`
 `;
 
 const Content = styled.div`
+  flex: 3;
   animation: 1s ${inAnimation} ease-out;
 `;
 
@@ -50,6 +51,7 @@ const WebContent = (props: Props) => {
         width: "100%",
         display: "flex",
         flexDirection: "column",
+        marginLeft: "100px",
       }}
     >
       <div
@@ -65,7 +67,7 @@ const WebContent = (props: Props) => {
         <Title>{props.title}</Title>
         <SubTitle>{props.subtitle}</SubTitle>
       </div>
-      <Content style={{ flex: 3 }}>{props.children}</Content>
+      <Content>{props.children}</Content>
     </div>
   );
 };

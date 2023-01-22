@@ -82,6 +82,7 @@ export default function App() {
           width: "50%",
           zIndex: 1,
           height: "100%",
+          overflow: "scroll",
           position: "absolute",
           display: "flex",
           gap: "2em",

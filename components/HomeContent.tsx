@@ -4,16 +4,28 @@ import Button from "./Button";
 const HomeContent = () => {
   const [seeFullContent, setSeeFullContent] = useState(false);
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "1em",
+        marginBottom: "3em",
+      }}
+    >
+      <div style={{ marginTop: "2em" }}>
+        <img src="./profile.png" width="250" height="250"></img>
+      </div>
       {!seeFullContent && (
-        <p>
-          In the world of technology, change is constant and evolution is key.
-          As a freelancer programmer, I've made it my mission to stay ahead of
-          the curve and bring value.
-        </p>
+        <div style={{ display: "flex", gap: "1em" }}>
+          <p>
+            In the world of technology, change is constant and evolution is key.
+            As a freelancer programmer, I've made it my mission to stay ahead of
+            the curve and bring value.
+          </p>
+        </div>
       )}
       {seeFullContent && (
-        <>
+        <div>
           <p>
             As a passionate and dedicated freelancer programmer, I have been
             honing my skills and building my experience for over five years. My
@@ -48,7 +60,7 @@ const HomeContent = () => {
             I can help. Feel free to contact me and take a look at my portfolio
             and work samples.
           </p>
-        </>
+        </div>
       )}
       <Button
         text={!seeFullContent ? "Show more" : "Show less"}
