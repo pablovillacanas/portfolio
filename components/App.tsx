@@ -54,8 +54,9 @@ export default function App() {
     switch (query) {
       case "cv":
         return {
-          title: "Skillset!",
-          subtitle: "Let's make amazing things together!",
+          title: "Skillset",
+          subtitle:
+            "Continuous learning and adaptation to the latest technologies",
           content: <CVContent />,
         };
       case "contact":
@@ -67,7 +68,7 @@ export default function App() {
       default:
         return {
           title: "Hi, I'm Pablo!",
-          subtitle: "Get to know me a little better :D",
+          subtitle: "Let's make amazing things together!",
           content: <HomeContent />,
         };
     }

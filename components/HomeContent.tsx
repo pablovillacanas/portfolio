@@ -1,42 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
+import Button from "./Button";
 
 const HomeContent = () => {
+  const [seeFullContent, setSeeFullContent] = useState(false);
   return (
     <div>
-      <p>
-        After four years studying Psychology at the University of Santiago de
-        Compostela and successfully graduating, I decided to reorient my
-        professional career towards my true passion: software development.
-      </p>
-      <p>
-        It was not the first time that I was faced with a source code. Since I
-        was young, I stood out in technology subjects and specifically in those
-        that had to do with programming. After a career that did not give me
-        professional opportunities, but that served me for many other things
-        (group work, research, etc.) I decided to try my luck with an extensive
-        Java course.
-      </p>
-      <p>
-        After a couple of years studying in a self-taught way, I decided to take
-        a specialization course in multiplatform application development, which
-        I managed to obtain with honors. Since then I have been researching and
-        perfecting my skills inversting hundredS of hours in what I love the
-        most: do software engineering.
-      </p>
-      <p>
-        My first job was in Situm, a reaally cool startup that provides indoor
-        positioning. In that company I've specialized in the frontend side,
-        where I made a full high-performant and fully customizable realtime
-        tracking panel. However I was also in touch with other technologies at
-        the same time. From CI/CD and Kubernetes to async messaging queues with
-        rabbitmq.
-      </p>
-      <p>
-        Right now I'm working in Shell (one of the biggest companies in the
-        world) as one of the frontend leads in my team delivering a portal from
-        which traders can make their markets decissions. In my spare time I also
-        work as freelancer.
-      </p>
+      {!seeFullContent && (
+        <p>
+          In the world of technology, change is constant and evolution is key.
+          As a freelancer programmer, I've made it my mission to stay ahead of
+          the curve and bring value.
+        </p>
+      )}
+      {seeFullContent && (
+        <>
+          <p>
+            As a passionate and dedicated freelancer programmer, I have been
+            honing my skills and building my experience for over five years. My
+            background in psychology has helped me to approach each project with
+            a unique perspective, understanding the needs of my clients and
+            tailoring my solutions accordingly. My proficiency in frontend
+            technologies, including JavaScript and TypeScript, has been put to
+            good use in various projects. However, I also comfortable using
+            backend technologies, improving CI/CD or using cloud
+            infraestructures as AWS or Azure.
+          </p>
+          <p>
+            One of the projects I'm most proud of is the creation of a real-time
+            tracking panel for Situm, one of the leaders companies in indoor
+            positioning, or the improvement of dashboards for one of the major
+            energy industries in the world. Those high-performance and fully
+            customizable solution allowed both companies to easily visualize
+            complex data and make more informed decisions. I love taking on
+            challenges and finding creative solutions to improve the performance
+            of companies.
+          </p>
+          <p>
+            I am a results-driven and professional programmer who always puts in
+            the extra effort to make sure that projects are delivered on time
+            and within budget. I am open to new opportunities and looking
+            forward to working with new clients and helping them achieve their
+            goals.
+          </p>
+          <p>
+            If you're looking for a dedicated, skilled, and creative programmer
+            to bring your project to the next level, I'd be happy to discuss how
+            I can help. Feel free to contact me and take a look at my portfolio
+            and work samples.
+          </p>
+        </>
+      )}
+      <Button
+        text={!seeFullContent ? "Show more" : "Show less"}
+        onClick={function (): void {
+          setSeeFullContent(!seeFullContent);
+        }}
+      ></Button>
     </div>
   );
 };
