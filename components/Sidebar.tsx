@@ -7,25 +7,33 @@ import { GrMail } from "react-icons/gr";
 import { CustomTheme } from "./App";
 import Link from "next/link";
 import hexToRgba from "hex-to-rgba";
+import { useRouter } from "next/router";
 
 const StyledLink = styled(Link)`
   width: 100%;
 `;
 
-const DivLinkStyled = styled.div`
+interface DivLinkStyledProps {
+  highlight?: boolean;
+}
+const DivLinkStyled = styled.div<DivLinkStyledProps>`
   align-items: center;
   display: flex;
   justify-content: center;
   padding: 0.5em 0em;
   width: 100%;
+  background-color: ${(props) =>
+    props.highlight && props.theme.colors.background};
   &:hover {
     background-color: ${(props) =>
-      hexToRgba(props.theme.colors.secondary, 0.5)};
+      !props.highlight && hexToRgba(props.theme.colors.secondary, 0.5)};
   }
 `;
 
 const Sidebar = () => {
   const theme = useTheme() as CustomTheme;
+  const { query } = useRouter();
+
   return (
     <div
       style={{
@@ -42,11 +50,15 @@ const Sidebar = () => {
       }}
     >
       <StyledLink href={"/"} shallow={true}>
-        <DivLinkStyled>
+        <DivLinkStyled highlight={!query.section || query.section === "home"}>
           <Tooltip content="Home">
             <BsHouseDoorFill
               size={40}
-              color={theme.colors.primaryVariant}
+              color={
+                !query.section || query.section === "home"
+                  ? theme.colors.radiactiveYellow
+                  : theme.colors.primaryVariant
+              }
               style={{ cursor: "pointer" }}
             />
           </Tooltip>
@@ -54,11 +66,15 @@ const Sidebar = () => {
       </StyledLink>
 
       <StyledLink href={"/?section=contact"} shallow={true}>
-        <DivLinkStyled>
+        <DivLinkStyled highlight={query.section === "contact"}>
           <Tooltip content="Contact">
             <GrMail
               size={40}
-              color={theme.colors.primaryVariant}
+              color={
+                query.section === "contact"
+                  ? theme.colors.radiactiveYellow
+                  : theme.colors.primaryVariant
+              }
               style={{ cursor: "pointer" }}
             />
           </Tooltip>
@@ -66,11 +82,15 @@ const Sidebar = () => {
       </StyledLink>
 
       <StyledLink href={"/?section=cv"} shallow={true}>
-        <DivLinkStyled>
+        <DivLinkStyled highlight={query.section === "cv"}>
           <Tooltip content="CV">
             <BsFileEarmarkPerson
               size={40}
-              color={theme.colors.primaryVariant}
+              color={
+                query.section === "cv"
+                  ? theme.colors.radiactiveYellow
+                  : theme.colors.primaryVariant
+              }
               style={{ cursor: "pointer" }}
             />
           </Tooltip>
