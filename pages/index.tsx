@@ -10,6 +10,14 @@ export default function Home() {
         <Head>
           <title>Pablo Villacañas</title>
           <link rel="icon" href="/favicon.ico" />
+          <meta
+            name="title"
+            content="Pablo Domínguez Villacañas freelance full-stack developer"
+          ></meta>
+          <meta
+            name="description"
+            content="Pablo Dominguez Villacañas is a freelance full-stack developer based in Spain"
+          ></meta>
         </Head>
         <App></App>
       </div>
