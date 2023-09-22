@@ -27,10 +27,10 @@ const TickerText = styled.span`
   margin-right: 1rem; /* Espacio entre elementos (opcional) */
 `;
 
-const Ticker = ({ data }) => {
+const Ticker = ({ items }: { items: JSX.Element[] }) => {
   return (
     <TickerContainer>
-      {data.map((item, index) => (
+      {items.map((item, index) => (
         <TickerText key={index}>{item}</TickerText>
       ))}
     </TickerContainer>
