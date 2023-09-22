@@ -45,12 +45,6 @@ const Content = styled.div`
 `;
 
 const WebContent = (props: Props) => {
-	const theme: any = useTheme();
-
-	useEffect(() => {
-		console.log(props.title);
-	}, [props.title]);
-
 	return (
 		<div
 			key={props.title}

@@ -47,7 +47,6 @@ const theme: CustomTheme = {
 export default function App() {
 	const { x, y, handleMouseMove } = useMove();
 	const target = React.useRef(null);
-	// const [view, setView] = useState<"home" | "contact" | "cv">("home");
 	const router = useRouter();
 
 	const viewMap = (query?: string | string[]) => {
@@ -139,6 +138,8 @@ export default function App() {
 						minWidth: '100%',
 					}}
 					id='canvasback'
+					onLoad={() => console.log('loaded')}
+					onCompositionEnd={() => console.log('end')}
 				>
 					<Suspense>
 						<Portfoliobackground x={x} y={y} />
