@@ -42,7 +42,7 @@ const HomeContent = () => {
     >
       <div style={{ marginTop: "2em" }}>
         <Image
-          src="/profile.png"
+          src="/profile.webp"
           alt="profile photo"
           width="250"
           height="250"
