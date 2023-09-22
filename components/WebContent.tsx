@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import styled, { keyframes, useTheme } from 'styled-components';
+import React from 'react';
+import styled, { keyframes } from 'styled-components';
 
 type Props = {
 	children: JSX.Element;
