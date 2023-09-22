@@ -9,10 +9,8 @@ import Link from 'next/link';
 import hexToRgba from 'hex-to-rgba';
 import { useRouter } from 'next/router';
 
-const StyledLink = styled(Link)<{ highlight: boolean }>`
+const StyledLink = styled(Link)`
 	width: 100%;
-	background-color: ${(props) =>
-		props.highlight && props.theme.colors.background};
 `;
 
 interface DivLinkStyledProps {
