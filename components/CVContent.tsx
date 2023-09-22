@@ -53,7 +53,7 @@ const Indicator = ({
 	text,
 }: {
 	fillAmount: number;
-	text: string;
+	text: JSX.Element;
 }) => {
 	return (
 		<div
