@@ -113,7 +113,7 @@ const CVContent = () => {
       </div>
       <div style={{ marginBottom: "1em" }}>
         <Ticker
-          data={[
+          items={[
             <SiKubernetes />,
             <SiReact />,
             <SiAmazonaws />,
