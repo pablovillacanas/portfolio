@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "./Button";
 import styled from "styled-components";
+import Image from "next/image";
 
 const Content = styled.div`
   height: fit-content;
@@ -40,7 +41,12 @@ const HomeContent = () => {
       }}
     >
       <div style={{ marginTop: "2em" }}>
-        <img src="./profile.png" width="250" height="250"></img>
+        <Image
+          src="/profile.png"
+          alt="profile photo"
+          width="250"
+          height="250"
+        />
       </div>
       <Content style={{ display: "flex", flexDirection: "column" }}>
         <div>
