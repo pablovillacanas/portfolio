@@ -20,12 +20,19 @@ const inAnimation = keyframes`
 `;
 
 const Title = styled.div`
+  h1 {
+    font-size: 100px;
+    margin: 0;
+  }
   position: relative;
   font-size: 100px;
   animation: 0.6s ${inAnimation} ease-out;
 `;
 
 const SubTitle = styled.div`
+  h2 {
+    font-size: 36px;
+  }
   background: linear-gradient(
     45deg,
     rgba(163, 184, 0, 1) 0%,
@@ -66,9 +73,11 @@ const WebContent = (props: Props) => {
         }}
       >
         <Title>
-          <span>{props.title}</span>
+          <h1>{props.title}</h1>
         </Title>
-        <SubTitle>{props.subtitle}</SubTitle>
+        <SubTitle>
+          <h2>{props.subtitle}</h2>
+        </SubTitle>
       </div>
       <Content>{props.children}</Content>
     </div>
