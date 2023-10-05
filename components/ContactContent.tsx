@@ -31,7 +31,16 @@ const ContactContent = () => {
           gap: "1em",
           alignItems: "center",
           margin: "1em 0em",
+          cursor: "pointer",
         }}
+        onClick={() =>
+          (location.href =
+            "mailto:pablo.villacanas@gmail.com" +
+            "&subject=" +
+            "Hi!" +
+            "&body=" +
+            "")
+        }
       >
         <BsEnvelope size={32} />
         <span>pablo.villacanas@gmail.com</span>
