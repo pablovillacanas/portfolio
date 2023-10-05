@@ -1,16 +1,15 @@
-import React from "react";
 import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 
-import Portfoliobackground from "./background/Portfoliobackground";
-import useMove from "../hooks/hooks";
+import { useRouter } from "next/router";
 import { ThemeProvider } from "styled-components";
+import useMove from "../hooks/hooks";
+import CVContent from "./CVContent";
+import ContactContent from "./ContactContent";
+import HomeContent from "./HomeContent";
 import Sidebar from "./Sidebar";
 import WebContent from "./WebContent";
-import HomeContent from "./HomeContent";
-import ContactContent from "./ContactContent";
-import CVContent from "./CVContent";
-import { useRouter } from "next/router";
+import Portfoliobackground from "./background/Portfoliobackground";
 
 export interface CustomTheme {
   colors: {
@@ -54,8 +53,6 @@ export default function App() {
       case "cv":
         return {
           title: "Skillset",
-          subtitle:
-            "Continuous learning and adaptation to the latest technologies",
           content: <CVContent />,
         };
       case "contact":
@@ -73,12 +70,18 @@ export default function App() {
     }
   };
 
+  const [layout, setLayout] = useState("desktop");
+
+  useEffect(() => {
+    setLayout(window?.innerWidth < 875 ? "mobile" : "desktop");
+  }, [layout]);
+
   return (
     <ThemeProvider theme={theme}>
       <div
         ref={target}
         style={{
-          width: "50%",
+          width: layout == "desktop" ? "50%" : "100%",
           zIndex: 1,
           height: "100%",
           overflow: "scroll",

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled, { useTheme } from "styled-components";
 import { BsHouseDoorFill, BsGithub, BsFileEarmarkPerson } from "react-icons/bs";
 import Tooltip from "./Tooltip";
@@ -36,16 +36,23 @@ const Sidebar = () => {
   const theme = useTheme() as CustomTheme;
   const { query } = useRouter();
 
+  const [layout, setLayout] = useState("desktop");
+
+  useEffect(() => {
+    setLayout(window?.innerWidth < 875 ? "mobile" : "desktop");
+  }, [layout]);
+
+  console.log("layout :>> ", layout);
   return (
     <div
       style={{
-        width: "4%",
         minWidth: "60px",
         background: `linear-gradient(0deg, rgba(163,184,0,1) 0%, rgba(253,187,45,1) 100%)`,
         position: "fixed",
-        height: "100vh",
+        height: `${layout == "desktop" ? "100vh" : ""}`,
         display: "flex",
-        flexDirection: "column",
+        flexDirection: `${layout == "desktop" ? "column" : "row"}`,
+        width: `${layout == "desktop" ? "4%" : "100%"}`,
         alignItems: "center",
         justifyContent: "center",
         zIndex: 2,

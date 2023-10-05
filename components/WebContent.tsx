@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 
 type Props = {
@@ -52,6 +52,12 @@ const Content = styled.div`
 `;
 
 const WebContent = (props: Props) => {
+  const [layout, setLayout] = useState("desktop");
+
+  useEffect(() => {
+    setLayout(window?.innerWidth < 875 ? "mobile" : "desktop");
+  }, [layout]);
+
   return (
     <div
       key={props.title}
@@ -60,7 +66,8 @@ const WebContent = (props: Props) => {
         width: "100%",
         display: "flex",
         flexDirection: "column",
-        marginLeft: "100px",
+        marginTop: layout === "desktop" ? "0px" : "60px",
+        marginLeft: layout === "desktop" ? "100px" : "10px",
       }}
     >
       <div
