@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "./Button";
-import { BsLinkedin } from "react-icons/bs";
+import { BsEnvelope, BsLinkedin, BsMailbox, BsWhatsapp } from "react-icons/bs";
 
 const ContactContent = () => {
   return (
@@ -9,17 +9,6 @@ const ContactContent = () => {
         Don't hesitate to get in touch!. You can mail me directly or reach me in
         my professional social networks :)
       </p>
-      <Button
-        text={"Mail me!"}
-        onClick={() => {
-          location.href =
-            "mailto:pablo.villacanas@gmail.com" +
-            "&subject=" +
-            "Hi!" +
-            "&body=" +
-            "";
-        }}
-      ></Button>
       <div
         style={{
           display: "flex",
@@ -37,6 +26,28 @@ const ContactContent = () => {
       >
         <BsLinkedin size={32} />
         <span>Reach me on Linkedin</span>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          gap: "1em",
+          alignItems: "center",
+          margin: "1em 0em",
+        }}
+      >
+        <BsEnvelope size={32} />
+        <span>pablo.villacanas@gmail.com</span>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          gap: "1em",
+          alignItems: "center",
+          margin: "1em 0em",
+        }}
+      >
+        <BsWhatsapp size={32} />
+        <span>+34 618812840</span>
       </div>
     </div>
   );

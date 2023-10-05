@@ -26,8 +26,9 @@ const DivLinkStyled = styled.div<DivLinkStyledProps>`
   background-color: ${(props) =>
     props.highlight && props.theme.colors.background};
   &:hover {
-    background-color: ${(props) =>
-      !props.highlight && hexToRgba(props.theme.colors.secondary, 0.5)};
+    border-left: ${(props) =>
+      !props.highlight && `5px solid ${props.theme.colors.background}`};
+    transition: 0.2s;
   }
 `;
 
@@ -98,18 +99,20 @@ const Sidebar = () => {
         </DivLinkStyled>
       </StyledLink>
 
-      <DivLinkStyled>
-        <Tooltip content="Github">
-          <BsGithub
-            size={40}
-            color={theme.colors.primaryVariant}
-            onClick={() => {
-              window.open("https://github.com/pablovillacanas", "_newtab");
-            }}
-            style={{ cursor: "pointer" }}
-          />
-        </Tooltip>
-      </DivLinkStyled>
+      <StyledLink href={"."}>
+        <DivLinkStyled>
+          <Tooltip content="Github">
+            <BsGithub
+              size={40}
+              color={theme.colors.primaryVariant}
+              onClick={() => {
+                window.open("https://github.com/pablovillacanas", "_newtab");
+              }}
+              style={{ cursor: "pointer" }}
+            />
+          </Tooltip>
+        </DivLinkStyled>
+      </StyledLink>
     </div>
   );
 };
