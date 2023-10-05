@@ -37,6 +37,7 @@ const Sidebar = () => {
 
   const [layout, setLayout] = useState("desktop");
 
+  const a = 0;
   useEffect(() => {
     setLayout(window?.innerWidth < 875 ? "mobile" : "desktop");
   }, [layout]);
