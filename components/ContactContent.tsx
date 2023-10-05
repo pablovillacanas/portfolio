@@ -1,6 +1,4 @@
-import React from "react";
-import Button from "./Button";
-import { BsEnvelope, BsLinkedin, BsMailbox, BsWhatsapp } from "react-icons/bs";
+import { BsEnvelope, BsLinkedin, BsWhatsapp } from "react-icons/bs";
 
 const ContactContent = () => {
   return (
