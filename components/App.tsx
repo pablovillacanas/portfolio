@@ -53,6 +53,7 @@ export default function App() {
       case "cv":
         return {
           title: "Skillset",
+          subtitle: "Explore my toolbox!",
           content: <CVContent />,
         };
       case "contact":
