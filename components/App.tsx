@@ -60,14 +60,14 @@ export default function App() {
         };
       case "contact":
         return {
-          title: "Let's get in touch!",
+          title: "Get in touch!",
           subtitle: "We are at 1 click distance!",
           content: <ContactContent />,
         };
       default:
         return {
           title: "Hi, I'm Pablo!",
-          subtitle: "Let's build amazing things together!",
+          subtitle: "Let's build and launch something great together!",
           content: <HomeContent />,
         };
     }
