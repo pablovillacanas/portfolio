@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { BsFileEarmarkPerson, BsGithub, BsHouseDoorFill } from "react-icons/bs";
 import styled, { useTheme } from "styled-components";
-import { BsHouseDoorFill, BsGithub, BsFileEarmarkPerson } from "react-icons/bs";
 import Tooltip from "./Tooltip";
 
+import Link from "next/link";
+import { useRouter } from "next/router";
 import { GrMail } from "react-icons/gr";
 import { CustomTheme } from "./App";
-import Link from "next/link";
-import hexToRgba from "hex-to-rgba";
-import { useRouter } from "next/router";
 
 const StyledLink = styled(Link)`
   width: 100%;
