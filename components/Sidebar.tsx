@@ -41,7 +41,6 @@ const Sidebar = () => {
     setLayout(window?.innerWidth < 875 ? "mobile" : "desktop");
   }, [layout]);
 
-  console.log("layout :>> ", layout);
   return (
     <div
       style={{
