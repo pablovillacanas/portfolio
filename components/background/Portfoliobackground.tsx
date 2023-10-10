@@ -5,6 +5,8 @@ import { useGLTF, PerspectiveCamera, useAnimations } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
 import Particle from "./Particle";
 import { createParticles } from "./particlesFactory";
+import { useTheme } from "styled-components";
+import { CustomTheme } from "../App";
 
 export default function Portfoliobackground(mousePosition: {
   x: number;
@@ -14,7 +16,7 @@ export default function Portfoliobackground(mousePosition: {
   const { nodes, materials, animations } = useGLTF("/portfoliobackground.gltf");
   const { camera } = useThree();
   const [particles, setParticles] = useState(createParticles(20));
-
+  const theme = useTheme() as CustomTheme;
   const { actions, mixer } = useAnimations(animations, group);
 
   useEffect(() => {
@@ -48,7 +50,7 @@ export default function Portfoliobackground(mousePosition: {
           position={[10.63, 6.35, -5.61]}
           rotation={[-1.84, 0.6, 1.93]}
           scale={[1, 1, 1]}
-          intensity={0.3} // o 07 si light
+          intensity={theme.darkModeEnabled ? 0.3 : 0.7}
           castShadow={true}
           shadow-mapSize-height={512}
           shadow-mapSize-width={512}
@@ -224,7 +226,6 @@ export default function Portfoliobackground(mousePosition: {
           name="gridplane"
           geometry={(nodes.gridplane as any).geometry}
           material={materials.Gridplane}
-          emissiveIntensity={0}
           position={[-20.66, 0, -12.93]}
           rotation={[0, -0.07, 0]}
           scale={[15, 1, 15]}
@@ -253,6 +254,15 @@ export default function Portfoliobackground(mousePosition: {
           geometry={(nodes.gridplane as any).geometry}
           material={materials.Gridplane}
           position={[16.15, 0, -2.12]}
+          rotation={[0, -0.07, 0]}
+          scale={[15, 1, 15]}
+          receiveShadow
+        />
+        <mesh
+          name="gridplane"
+          geometry={(nodes.gridplane as any).geometry}
+          material={materials.Gridplane}
+          position={[-17.5, 0, 8.45]}
           rotation={[0, -0.07, 0]}
           scale={[15, 1, 15]}
           receiveShadow

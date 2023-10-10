@@ -39,10 +39,9 @@ export const createParticles = (num: number): ParticleProps[] => {
     endPosition.y = HEIGHT;
     particles.push({
       initialPosition: init.toArray() as [number, number, number],
-      endPosition: endPosition,
+      endPosition: endPosition.toArray() as [number, number, number],
       vector: "vertical" as const,
     });
   }
-  console.log("particles :>> ", particles);
   return particles;
 };

@@ -1,8 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import React, { Suspense, useEffect, useState } from "react";
-
 import { useRouter } from "next/router";
-import { ThemeProvider } from "styled-components";
+import { ThemeProvider, useTheme } from "styled-components";
 import useMove from "../hooks/hooks";
 import CVContent from "./CVContent";
 import ContactContent from "./ContactContent";
@@ -10,6 +9,7 @@ import HomeContent from "./HomeContent";
 import Sidebar from "./Sidebar";
 import WebContent from "./WebContent";
 import Portfoliobackground from "./background/Portfoliobackground";
+import LightDarkModeToggle from "./atoms/LightDarkModeToggle";
 
 export interface CustomTheme {
   colors: {
@@ -25,6 +25,7 @@ export interface CustomTheme {
     material: string;
     default: string;
   };
+  darkModeEnabled?: boolean;
 }
 
 const theme: CustomTheme = {
@@ -41,12 +42,15 @@ const theme: CustomTheme = {
     material: "Roboto",
     default: "Montserrat",
   },
+  darkModeEnabled: false,
 };
 
 export default function App() {
   const { x, y, handleMouseMove } = useMove();
   const target = React.useRef(null);
   const router = useRouter();
+  const [layout, setLayout] = useState("desktop");
+  const [darkModeEnabled, setDarkModeEnabled] = useState(false);
 
   const viewMap = (query?: string | string[]) => {
     switch (query) {
@@ -71,14 +75,12 @@ export default function App() {
     }
   };
 
-  const [layout, setLayout] = useState("desktop");
-
   useEffect(() => {
     setLayout(window?.innerWidth < 875 ? "mobile" : "desktop");
   }, [layout]);
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={{ ...theme, darkModeEnabled: darkModeEnabled }}>
       <div
         ref={target}
         style={{
@@ -90,13 +92,19 @@ export default function App() {
           display: "flex",
           gap: "2em",
           color: theme.colors.text,
-          background: `linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(2,0,36,1) ${
-            x / 35 + 35
-          }%, rgba(0,212,255,0) 100%)`,
+          background: `${
+            layout == "mobile" ? theme.colors.background : "transparent"
+          }`,
         }}
         onMouseMove={handleMouseMove}
       >
         <Sidebar />
+        <div style={{ position: "fixed", top: "0em", right: "1em" }}>
+          <LightDarkModeToggle
+            darkModeEnabled={darkModeEnabled}
+            onToggle={() => setDarkModeEnabled(!darkModeEnabled)}
+          />
+        </div>
         <WebContent
           title={viewMap(router.query.section).title}
           subtitle={viewMap(router.query.section).subtitle}
@@ -127,29 +135,31 @@ export default function App() {
           </span>
         </div>
       </div>
-      <div
-        style={{
-          position: "relative",
-          height: "100%",
-          backgroundColor: "#041327",
-        }}
-        onMouseMove={handleMouseMove}
-      >
-        <Canvas
-          shadows
+      {layout == "desktop" && (
+        <div
           style={{
-            minHeight: "100%",
-            minWidth: "100%",
+            position: "relative",
+            height: "100%",
+            backgroundColor: "#041327",
           }}
-          id="canvasback"
-          onLoad={() => console.log("loaded")}
-          onCompositionEnd={() => console.log("end")}
+          onMouseMove={handleMouseMove}
         >
-          <Suspense>
-            <Portfoliobackground x={x} y={y} />
-          </Suspense>
-        </Canvas>
-      </div>
+          <Canvas
+            shadows
+            style={{
+              minHeight: "100%",
+              minWidth: "100%",
+            }}
+            id="canvasback"
+            onLoad={() => console.log("loaded")}
+            onCompositionEnd={() => console.log("end")}
+          >
+            <Suspense>
+              <Portfoliobackground x={x} y={y} />
+            </Suspense>
+          </Canvas>
+        </div>
+      )}
     </ThemeProvider>
   );
 }
