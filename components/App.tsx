@@ -1,7 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import React, { Suspense, useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { ThemeProvider, useTheme } from "styled-components";
+import { ThemeProvider } from "styled-components";
 import useMove from "../hooks/hooks";
 import CVContent from "./CVContent";
 import ContactContent from "./ContactContent";
