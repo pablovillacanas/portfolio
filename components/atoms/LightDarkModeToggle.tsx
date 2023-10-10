@@ -1,5 +1,4 @@
-import styled, { useTheme } from "styled-components";
-import { CustomTheme } from "../App";
+import styled from "styled-components";
 
 const StyledLabel = styled.label`
   width: 50px;
