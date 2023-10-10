@@ -50,8 +50,8 @@ export default function Portfoliobackground(mousePosition: {
           position={[10.63, 6.35, -5.61]}
           rotation={[-1.84, 0.6, 1.93]}
           scale={[1, 1, 1]}
-          intensity={theme.darkModeEnabled ? 0.3 : 0.7}
-          castShadow={true}
+          intensity={theme.darkModeEnabled ? 0.3 : 0.8}
+          castShadow={!theme.darkModeEnabled}
           shadow-mapSize-height={512}
           shadow-mapSize-width={512}
         />
@@ -61,6 +61,7 @@ export default function Portfoliobackground(mousePosition: {
             initialPosition={particle.initialPosition}
             endPosition={particle.endPosition}
             vector={particle.vector}
+            intensity={theme.darkModeEnabled ? 70 : 60}
           />
         ))}
         <group

@@ -5,6 +5,7 @@ export interface ParticleProps {
   initialPosition: [number, number, number];
   endPosition: [number, number, number];
   vector: "horizontal" | "vertical";
+  intensity: number;
 }
 
 const Particle = (props: ParticleProps) => {
@@ -42,9 +43,9 @@ const Particle = (props: ParticleProps) => {
     >
       <sphereGeometry />
       <pointLight
-        intensity={70}
+        intensity={props.intensity}
         distance={0.7}
-        power={70}
+        power={props.intensity}
         shadow-mapSize-height={512}
         shadow-mapSize-width={512}
       />
