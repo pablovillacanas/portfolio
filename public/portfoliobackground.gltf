@@ -763,7 +763,7 @@
                     "index" : 2
                 },
                 "metallicFactor" : 0,
-                "roughnessFactor" : 0.7
+                "roughnessFactor" : 1
             }
         }
     ],

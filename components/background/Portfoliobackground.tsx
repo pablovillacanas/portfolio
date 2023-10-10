@@ -63,22 +63,6 @@ export default function Portfoliobackground(mousePosition: {
             vector={particle.vector}
           />
         ))}
-        <mesh position={[-1, 0.3, -5]} scale={[0.02, 0.02, 0.02]}>
-          <sphereGeometry />
-          <pointLight
-            intensity={1}
-            distance={0.7}
-            power={4}
-            shadow-mapSize-height={512}
-            shadow-mapSize-width={512}
-          />
-          <meshStandardMaterial
-            metalness={0}
-            color={"#bea925"}
-            emissive={"#bea925"}
-            emissiveIntensity={0.5}
-          />
-        </mesh>
         <group
           name="dummyobject"
           position={[-6.9, 0.32, 1.09]}

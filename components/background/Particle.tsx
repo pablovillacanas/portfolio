@@ -42,9 +42,9 @@ const Particle = (props: ParticleProps) => {
     >
       <sphereGeometry />
       <pointLight
-        intensity={1}
+        intensity={70}
         distance={0.7}
-        power={4}
+        power={70}
         shadow-mapSize-height={512}
         shadow-mapSize-width={512}
       />
