@@ -14,7 +14,9 @@ export const horizontalVector = new THREE.Vector3(0.17, HEIGHT, -0.855).sub(
   new THREE.Vector3(0.04, 0, 0.915)
 );
 
-export const createParticles = (num: number): Partial<ParticleProps>[] => {
+export const createParticles = (
+  num: number
+): Omit<ParticleProps, "intensity">[] => {
   const particles = [];
   for (let i = 0; i < num; i++) {
     const init = new THREE.Vector3(0, HEIGHT, 0)

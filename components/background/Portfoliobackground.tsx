@@ -57,7 +57,7 @@ export default function Portfoliobackground(mousePosition: {
         />
         {particles.map((particle) => (
           <Particle
-            key={particle.initialPosition.toString()}
+            key={particle.initialPosition?.toString()}
             initialPosition={particle.initialPosition}
             endPosition={particle.endPosition}
             vector={particle.vector}
