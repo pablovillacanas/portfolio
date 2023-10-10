@@ -99,12 +99,14 @@ export default function App() {
         onMouseMove={handleMouseMove}
       >
         <Sidebar />
-        <div style={{ position: "fixed", top: "0em", right: "1em" }}>
-          <LightDarkModeToggle
-            darkModeEnabled={darkModeEnabled}
-            onToggle={() => setDarkModeEnabled(!darkModeEnabled)}
-          />
-        </div>
+        {layout == "desktop" && (
+          <div style={{ position: "fixed", top: "0em", right: "1em" }}>
+            <LightDarkModeToggle
+              darkModeEnabled={darkModeEnabled}
+              onToggle={() => setDarkModeEnabled(!darkModeEnabled)}
+            />
+          </div>
+        )}
         <WebContent
           title={viewMap(router.query.section).title}
           subtitle={viewMap(router.query.section).subtitle}
