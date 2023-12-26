@@ -131,6 +131,9 @@ export default function App() {
           }}
         >
           <span style={{ fontSize: "0.8em", paddingRight: "1em" }}>
+            Made with ❤️ by Pablo Domínguez Villacañas
+          </span>
+          <span style={{ fontSize: "0.8em", paddingRight: "1em" }}>
             See the code on{" "}
             <a href="https://github.com/pablovillacanas/portfolio">Github</a>.
             Deployed on Vercel
