@@ -1,0 +1,242 @@
+/* ============================================================
+   Modo "cuenta propia" — Servicios freelance
+   ============================================================ */
+
+/* ---- Hero ---- */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 6rem;
+}
+.heroKicker {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 1.75rem;
+}
+.hero h1 {
+  font-size: clamp(2.6rem, 8vw, 5.2rem);
+  line-height: 1.06;
+  max-width: 18ch;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--amber-soft);
+}
+.heroRole {
+  margin-top: 1.5rem;
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  color: var(--text-muted);
+  max-width: 46ch;
+}
+.heroRow {
+  margin-top: 3rem;
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+.heroScroll {
+  position: absolute;
+  bottom: 2.5rem;
+  left: var(--gutter);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.heroScroll::after {
+  content: "";
+  width: 1px;
+  height: 2.2rem;
+  background: linear-gradient(to bottom, var(--amber), transparent);
+  animation: scrollline 2.4s ease-in-out infinite;
+}
+@keyframes scrollline {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.6); }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+
+/* ---- Services ---- */
+.services {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+@media (max-width: 900px) {
+  .services { grid-template-columns: 1fr; }
+}
+.service {
+  border: 1px solid var(--border);
+  background: var(--bg-soft);
+  padding: 2.25rem;
+  border-radius: 2px;
+  transition: border-color 0.35s ease, transform 0.35s ease, background 0.35s ease;
+}
+.service:hover {
+  border-color: var(--amber);
+  transform: translateY(-4px);
+  background: var(--surface);
+}
+.serviceIndex {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--amber);
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+.service h3 {
+  margin-bottom: 0.75rem;
+}
+.service p {
+  font-size: 0.94rem;
+  margin-bottom: 1rem;
+}
+.service ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.service li {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-faint);
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+.service li::before {
+  content: "—";
+  color: var(--amber);
+}
+
+/* ---- Case studies ---- */
+.case {
+  display: grid;
+  grid-template-columns: 0.55fr 1fr;
+  gap: 3rem;
+  padding: 3.5rem 0;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+}
+.caseFirst {
+  border-top: 1px solid var(--border);
+}
+@media (max-width: 860px) {
+  .case { grid-template-columns: 1fr; gap: 1.25rem; }
+}
+.caseNumber {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  color: var(--surface-2);
+  line-height: 1;
+}
+.caseTag {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+.caseResults {
+  display: flex;
+  gap: 2.5rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+.caseResultValue {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--amber-soft);
+}
+.caseResultLabel {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+/* ---- Process ---- */
+.process {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+@media (max-width: 900px) {
+  .process { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .process { grid-template-columns: 1fr; }
+}
+.processStep {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-strong);
+}
+.processNumber {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--amber);
+  margin-bottom: 1rem;
+  display: block;
+}
+.processStep h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+}
+.processStep p {
+  font-size: 0.9rem;
+}
+
+/* ---- Contact ---- */
+.contact {
+  text-align: left;
+}
+.contactTitle {
+  font-size: clamp(2.4rem, 7vw, 4.8rem);
+  line-height: 1.05;
+}
+.contactTitle em { font-style: italic; color: var(--amber-soft); }
+.contactRow {
+  margin-top: 3rem;
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+.availability {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 1.5rem;
+}
+.availability::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #6fae6f;
+  box-shadow: 0 0 0 0 rgba(111, 174, 111, 0.6);
+  animation: pulse 2.2s infinite;
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(111, 174, 111, 0.55); }
+  70% { box-shadow: 0 0 0 8px rgba(111, 174, 111, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(111, 174, 111, 0); }
+}

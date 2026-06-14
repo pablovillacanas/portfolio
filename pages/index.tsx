@@ -1,36 +1,39 @@
 import Head from "next/head";
-import React from "react";
-import App from "../components/App";
-import styles from "../styles/Home.module.css";
+import styles from "@/styles/Home.module.css";
 
 export default function Home() {
   return (
-    <div className={styles.container}>
-      <div className="main" style={{ height: "100%" }}>
-        <Head>
-          <title>Pablo Villacañas</title>
-          <link rel="icon" href="/favicon.ico" />
-          <meta
-            name="title"
-            content="Pablo Domínguez Villacañas freelance full-stack developer"
-          ></meta>
-          <meta
-            name="facebook-domain-verification"
-            content="judoa61fzepajdwo2i9e0ep12mksus"
-          />
-          <meta
-            name="description"
-            content="Pablo Dominguez Villacañas is a freelance full-stack developer based in Spain"
-          ></meta>
-        </Head>
-        <App></App>
-      </div>
-    </div>
-  );
-}
+    <>
+      <Head>
+        <title>Pablo Domínguez Villacañas</title>
+        <meta name="description" content="Pablo Domínguez Villacañas — desarrollador full-stack." />
+      </Head>
 
-export async function getServerSideProps() {
-  return {
-    props: {},
-  };
+      <div className="bgGrid" />
+
+      <main className={styles.home}>
+        <div className={styles.inner}>
+          <p className="eyebrow" style={{ marginBottom: "1rem" }}>
+            Pablo Domínguez Villacañas
+          </p>
+          <h1>Software, con perspectiva.</h1>
+          <p className="lede">
+            Desarrollador full-stack. Si nos conocemos o buscas mi contacto profesional,
+            escríbeme directamente.
+          </p>
+          <div className={styles.links}>
+            <a className="btn" href="mailto:pablo.villacanas@gmail.com">
+              Escribir un correo <span className="btnArrow">→</span>
+            </a>
+            <a className="btn" href="https://www.linkedin.com/in/pablovillacanas" target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            </a>
+            <a className="btn" href="https://github.com/pablovillacanas" target="_blank" rel="noopener noreferrer">
+              GitHub
+            </a>
+          </div>
+        </div>
+      </main>
+    </>
+  );
 }
