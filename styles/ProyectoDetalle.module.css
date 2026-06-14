@@ -1,0 +1,226 @@
+/* ============================================================
+   Página de detalle de proyecto
+   ============================================================ */
+
+/* ---- Back nav ---- */
+.backNav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  margin-bottom: 4rem;
+}
+.backNav:hover {
+  color: var(--amber);
+}
+.backNav::before {
+  content: "←";
+  transition: transform 0.2s ease;
+}
+.backNav:hover::before {
+  transform: translateX(-4px);
+}
+
+/* ---- Hero ---- */
+.hero {
+  padding-top: 8rem;
+  padding-bottom: 0;
+}
+.heroMeta {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.heroMetaItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.heroMetaLabel {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.heroMetaValue {
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  color: var(--text-muted);
+}
+.heroBadges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+.badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 2px;
+  color: var(--text-faint);
+}
+
+/* ---- Problem ---- */
+.pullQuote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.5rem, 3.5vw, 2.4rem);
+  line-height: 1.25;
+  color: var(--amber-soft);
+  border-left: 2px solid var(--amber);
+  padding-left: 2rem;
+  margin: 3rem 0;
+  max-width: 36ch;
+}
+
+/* ---- Steps ---- */
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 3rem;
+}
+.step {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  gap: 1.5rem 2rem;
+  padding: 2.25rem 0;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+}
+.step:first-child {
+  border-top: 1px solid var(--border);
+}
+.stepNumber {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 2.25rem;
+  color: var(--surface-2);
+  line-height: 1;
+  padding-top: 0.1rem;
+}
+.stepTitle {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+.stepDesc {
+  font-size: 0.94rem;
+  color: var(--text-muted);
+  max-width: 52ch;
+}
+
+/* ---- Interface preview ---- */
+.interfaceCard {
+  background: var(--bg-soft);
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  padding: 2rem;
+  margin-top: 2.5rem;
+}
+.interfaceRow {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.interfaceRow:last-child {
+  border-bottom: none;
+}
+.interfaceStatus {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+.statusPass {
+  background: rgba(111, 174, 111, 0.15);
+  color: #6fae6f;
+  border: 1px solid rgba(111, 174, 111, 0.3);
+}
+.statusFail {
+  background: rgba(193, 98, 58, 0.15);
+  color: var(--terracotta);
+  border: 1px solid rgba(193, 98, 58, 0.3);
+}
+.statusPending {
+  background: rgba(227, 168, 87, 0.1);
+  color: var(--amber);
+  border: 1px solid rgba(227, 168, 87, 0.25);
+}
+.interfaceRule {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+.interfaceSlide {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-faint);
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* ---- Impact metrics ---- */
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+@media (max-width: 760px) {
+  .metrics { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .metrics { grid-template-columns: 1fr; }
+}
+.metric {
+  padding: 2rem;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+}
+.metricValue {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  color: var(--amber-soft);
+  font-style: italic;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+.metricLabel {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+/* ---- CTA ---- */
+.cta {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+}

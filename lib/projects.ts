@@ -11,7 +11,9 @@ export interface Project {
   descripcion: string;
   impacto: string;
   mostrarEnPortfolio: boolean;
+  exposeCompany: boolean;
   notas: string;
+  ruta?: string;
 }
 
 const PROJECTS_FILE = path.join(process.cwd(), "content", "projects.md");
@@ -101,7 +103,9 @@ export function getAllProjects(): Project[] {
       descripcion: fields.descripcion ?? "",
       impacto: fields.impacto ?? "",
       mostrarEnPortfolio: true,
+      exposeCompany: fields.exponer_cliente?.toLowerCase() === "si",
       notas: fields.notas ?? "",
+      ruta: fields.ruta?.trim() || undefined,
     });
   }
 

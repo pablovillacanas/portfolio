@@ -206,6 +206,18 @@
   color: var(--text-faint);
 }
 
+/* ---- Case CTA ---- */
+.caseCta {
+  margin-top: 1.75rem;
+}
+
+/* ---- Load more ---- */
+.loadMore {
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem 0 0;
+}
+
 /* ---- Process ---- */
 .process {
   display: grid;

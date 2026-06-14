@@ -1,12 +1,15 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import type { GetStaticProps } from "next";
 import styles from "@/styles/Freelance.module.css";
 import ScrollReveal from "@/components/ScrollReveal";
 import ScrollProgress from "@/components/ScrollProgress";
 import { getAllProjects, Project } from "@/lib/projects";
 import DevNav from "@/components/DevNav";
+
+const PAGE_SIZE = 3;
 
 interface FreelanceProps {
   projects: Project[];
@@ -21,6 +24,10 @@ export const getStaticProps: GetStaticProps<FreelanceProps> = async () => {
 };
 
 export default function Freelance({ projects }: FreelanceProps) {
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+  const visibleProjects = projects.slice(0, visibleCount);
+  const hasMore = visibleCount < projects.length;
+
   return (
     <>
       <Head>
@@ -147,7 +154,7 @@ export default function Freelance({ projects }: FreelanceProps) {
             </h2>
 
             <div>
-              {projects.map((project, i) => (
+              {visibleProjects.map((project, i) => (
                 <ScrollReveal
                   key={project.titulo}
                   variant="rise-lg"
@@ -164,7 +171,9 @@ export default function Freelance({ projects }: FreelanceProps) {
                     <p>{project.descripcion}</p>
                     <div className={styles.caseResults}>
                       <div>
-                        <div className={styles.caseResultValue}>{project.cliente}</div>
+                        <div className={styles.caseResultValue}>
+                          {project.exposeCompany ? project.cliente : "Confidencial"}
+                        </div>
                         <div className={styles.caseResultLabel}>Cliente</div>
                       </div>
                       <div>
@@ -172,10 +181,28 @@ export default function Freelance({ projects }: FreelanceProps) {
                         <div className={styles.caseResultLabel}>Periodo</div>
                       </div>
                     </div>
+                    {project.ruta && (
+                      <div className={styles.caseCta}>
+                        <Link href={project.ruta} className="btn">
+                          Saber más <span className="btnArrow">→</span>
+                        </Link>
+                      </div>
+                    )}
                   </div>
                 </ScrollReveal>
               ))}
             </div>
+
+            {hasMore && (
+              <div className={styles.loadMore}>
+                <button
+                  className="btn"
+                  onClick={() => setVisibleCount((c) => c + PAGE_SIZE)}
+                >
+                  Ver más proyectos <span className="btnArrow">↓</span>
+                </button>
+              </div>
+            )}
           </div>
         </section>
 

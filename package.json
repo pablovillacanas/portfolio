@@ -9,10 +9,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate-pdf": "node scripts/generate-pdf.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^0.1.8",
+    "framer-motion": "^12.40.0",
     "next": "^13.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

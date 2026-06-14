@@ -37,7 +37,7 @@ Campos por proyecto:
     en tiempo real, mejorando la toma de decisiones operativas.
 - mostrar_en_portfolio: si
 - notas: |
-    Caso de exito ya incluido en la web (h4dquv y n7qpfx). Revisar si hay
+    Caso de exito ya incluido en la web (freelance y cv). Revisar si hay
     metricas concretas (numero de instalaciones, reduccion de tiempos, etc.)
     para reforzar el impacto.
 
@@ -49,7 +49,7 @@ Campos por proyecto:
 - cliente: Shell PLC
 - periodo: mar 2022 - presente
 - estado: activo
-- rol: Frontend Team Lead
+- rol: Frontend Developer.
 - stack: React, Next.js, Tailwind, Django (API)
 - descripcion: >
     Desarrollo y liderazgo del equipo de frontend para paneles de
@@ -88,16 +88,15 @@ Campos por proyecto:
 
 ---
 
----
-
 ## Agente IA - Verificación de Presentaciones
 
 - titulo: Agente IA - Verificación de Presentaciones
-- cliente: Confidencial
+- cliente: Beway
 - periodo: jul 2025 - sep 2025
 - estado: finalizado
 - rol: AI Engineer / Developer
 - stack: Python, LLM (Claude/GPT)
+- ruta: /proyectos/agente-ia-verificacion
 - descripcion: >
     Desarrollo de un agente de IA capaz de verificar presentaciones de PowerPoint
     contra las reglas de diferentes departamentos antes de ser presentadas al cliente.
@@ -106,6 +105,27 @@ Campos por proyecto:
 - impacto: >
     La verificación pasó de ser un proceso de dos o tres días a completarse
     en un par de horas.
+- mostrar_en_portfolio: si
+- notas: |
+
+---
+
+## EASA - Ad Compliance Monitor
+
+- titulo: EASA - Ad Compliance Monitor
+- cliente: EASA
+- periodo: oct 2025 - dic 2025
+- estado: finalizado
+- rol: Frontend Lead
+- stack: React, Python, Docker, Azure
+- descripcion: >
+    EASA es una organización que monitorea la publicidad en redes sociales para
+    asegurar la compliance de los anunciantes en grandes plataformas. Se desarrolló
+    un scrapper sobre Google y Meta potenciado con IA para agilizar el proceso de
+    revisión y aumentar la productividad del equipo de operadores.
+- impacto: >
+    Búsquedas más ágiles con revisiones basadas en reglas de negocio ya procesadas,
+    listas para ser verificadas directamente por los operadores.
 - mostrar_en_portfolio: si
 - notas: |
 

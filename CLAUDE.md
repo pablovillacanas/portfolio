@@ -1,34 +1,41 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
-## Commands
-
-```bash
-yarn dev        # Start dev server at localhost:3000
-yarn build      # Production build
-yarn start      # Start production server (requires build first)
-```
-
-There are no test or lint scripts defined in package.json. ESLint and Prettier run automatically as a pre-commit hook via husky/lint-staged (scoped to `src/**` — note the actual source files are in the root, not `src/`, so the hooks effectively don't fire on most changes).
+This file provides guidance when working with code in this repository or editing codebase files.
 
 ## Architecture
 
-Single-page Next.js 13 app with a query-param-based router (`/?section=cv`, `/?section=contact`, default = home). All routing is shallow and client-side — there is only one page (`pages/index.tsx`).
+Next.js 13 with the **pages router**. Three routes: `/` (home), `/cv`, `/freelance`. Deployed on Vercel with `@vercel/analytics`.
 
-**Layout split:**
-- Desktop (≥875px): left half is the UI panel (sidebar + content), right half is a full-height Three.js canvas with an animated 3D background (`Portfoliobackground.tsx`). Mouse position is tracked via `useMove` and passed to the 3D scene to drive parallax.
-- Mobile (<875px): canvas is hidden; UI takes full width with a solid background color.
+**Pages:**
 
-**Component tree:**
-- `App` — root component; owns theme, dark mode state, layout detection, mouse tracking. Wraps everything in `styled-components` `ThemeProvider` with a `CustomTheme`.
-- `Sidebar` — fixed icon nav (Home, Contact, CV, GitHub). Active state derived from `router.query.section`.
-- `WebContent` — content panel wrapper with title/subtitle slots.
-- Section content components: `HomeContent`, `CVContent`, `ContactContent` — swapped in based on `router.query.section` via `viewMap()` in `App`.
-- `Portfoliobackground` / `Particle` / `particlesFactory` — Three.js/R3F scene loaded inside a `<Suspense>` boundary.
+- `pages/index.tsx` — Minimal landing: avatar, name, contact links.
+- `pages/cv.tsx` — Full CV (static content, no data fetching).
+- `pages/freelance.tsx` — Freelance consulting page; uses `getStaticProps` to load projects from `content/projects.md`.
 
-**Styling:** styled-components throughout. Theme colors and fonts are defined in `App.tsx` (`CustomTheme` interface). Global styles in `styles/globals.css`; font imports in `styles/fonts.css`. The `.babelrc` includes `babel-plugin-styled-components` for SSR class name stability.
+**Content / data layer:**
 
-**Types:** Custom global type declarations live in `@types/alltypes.d.ts`.
+- `content/projects.md` — Source of truth for portfolio projects. Custom block format: blocks separated by `---`, each starting with `## Title` and `- key: value` fields (YAML-ish, supports `>` folded and `|` literal scalars).
+- `lib/projects.ts` — Dependency-free custom parser for that format. A project is only returned if `mostrar_en_portfolio: si`; `exponer_cliente: si` controls whether the client name is shown publicly.
+- To add a project: add a block to `content/projects.md` following the existing format. The `add-project` skill automates this.
 
-**Deployment:** Vercel. Analytics via `@vercel/analytics`.
+**Components:**
+
+- `ScrollReveal` — IntersectionObserver-based animation wrapper. Three variants: `rise`, `rise-lg`, `fade`. Accepts `delay` (ms) for stagger effects. Stops observing after first trigger (plays once).
+- `ScrollProgress` — Thin amber progress bar fixed at the top of the viewport.
+- `DevNav` — Floating page nav rendered only in `development` mode (`process.env.NODE_ENV !== "development"` short-circuits to null in prod).
+
+**Styling:**
+
+- Design system: **Graphite & Amber** — dark graphite background (`#15171c`), amber accent (`#e3a857`).
+- All CSS variables (colors, fonts, container width, gutter) are defined in `styles/globals.css` under `:root`.
+- Fonts: `Fraunces` (display/headings, `--font-display`), `Work Sans` (body, `--font-body`), `Space Mono` (mono/labels, `--font-mono`).
+- Global utility classes live in `globals.css`: `.container`, `.bgGrid`, `.nav`, `.navMark`, `.navLinks`, `.btn`, `.btnSolid`, `.sectionLabel`, `.lede`, `.eyebrow`, `.footer`, `.footerInner`, `.footerLinks`, `.reveal`, `.revealLg`, `.revealFade`, `.revealVisible`, `.grid2`, `.grid3`.
+- Page-specific styles use CSS Modules (`Cv.module.css`, `Freelance.module.css`, `Home.module.css`).
+
+**Path alias:** `@/` maps to the repo root (configured via `tsconfig.json`).
+
+**`bgGrid`:** A fixed full-viewport `div` rendered on every page for the subtle dot-grid background texture. It sits at `z-index: 0` and is purely decorative.
+
+## Deployment
+
+Vercel. No special build steps — standard `next build`. The `public/CV-PabloVillacanas.pdf` file is linked from the CV page as a downloadable asset; update it there when the PDF changes.
