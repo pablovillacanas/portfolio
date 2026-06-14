@@ -9,6 +9,41 @@
   flex-direction: column;
   justify-content: center;
   padding-top: 6rem;
+  position: relative;
+  overflow: hidden;
+}
+.heroPhoto {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: clamp(280px, 42%, 560px);
+  z-index: 0;
+}
+.heroPhoto::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, var(--bg) 0%, rgba(21, 23, 28, 0.6) 35%, transparent 65%);
+  z-index: 1;
+  pointer-events: none;
+}
+.heroPhoto::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--bg) 0%, transparent 45%);
+  z-index: 1;
+  pointer-events: none;
+}
+.hero .container,
+.hero > div:not(.heroPhoto):not(.heroScroll) {
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 760px) {
+  .heroPhoto {
+    width: 100%;
+    opacity: 0.25;
+  }
 }
 .heroKicker {
   font-family: var(--font-mono);

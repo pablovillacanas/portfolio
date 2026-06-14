@@ -1,10 +1,12 @@
 import Head from "next/head";
+import Image from "next/image";
 import Link from "next/link";
 import type { GetStaticProps } from "next";
 import styles from "@/styles/Freelance.module.css";
 import ScrollReveal from "@/components/ScrollReveal";
 import ScrollProgress from "@/components/ScrollProgress";
 import { getAllProjects, Project } from "@/lib/projects";
+import DevNav from "@/components/DevNav";
 
 interface FreelanceProps {
   projects: Project[];
@@ -22,14 +24,15 @@ export default function Freelance({ projects }: FreelanceProps) {
   return (
     <>
       <Head>
-        <title>Pablo Villacañas — Desarrollo full-stack &amp; dashboards de datos</title>
+        <title>Pablo Villacañas — Datos e IA para empresas en crecimiento</title>
         <meta
           name="description"
-          content="Desarrollo full-stack a medida, dashboards de datos y consultoría técnica para empresas. Más de cinco años de experiencia con React, Next.js, Python y cloud."
+          content="Ayudo a empresas medianas a poner orden en sus datos y a tomar mejores decisiones con herramientas de IA. Diagnóstico, Business Intelligence y automatización sin fricciones."
         />
         <meta name="robots" content="noindex, nofollow" />
       </Head>
 
+      <DevNav />
       <div className="bgGrid" />
       <ScrollProgress />
 
@@ -47,27 +50,31 @@ export default function Freelance({ projects }: FreelanceProps) {
       <main>
         {/* ===================== HERO ===================== */}
         <section className={styles.hero}>
+          <div className={styles.heroPhoto}>
+            <Image src="/portrait.png" alt="Pablo Domínguez Villacañas" fill priority style={{ objectFit: "cover", objectPosition: "top center" }} />
+          </div>
           <div className="container">
             <ScrollReveal variant="fade" as="p" className={styles.heroKicker}>
-              Desarrollador full-stack freelance
+              Consultor de datos e IA · Empresas medianas
             </ScrollReveal>
             <ScrollReveal variant="rise-lg" as="h1">
-              Producto digital,
+              Tus datos,
               <br />
-              de la idea
-              <br />a <em>producción</em>.
+              convertidos en
+              <br />
+              <em>decisiones</em>.
             </ScrollReveal>
             <ScrollReveal variant="rise-lg" delay={140} as="p" className={styles.heroRole}>
-              Ayudo a empresas a diseñar, construir y mantener aplicaciones web,
-              paneles de datos y arquitecturas cloud — con el mismo nivel de cuidado
-              que pondría en mi propio producto.
+              Ayudo a empresas a entender qué datos tienen, qué valor pueden
+              extraer de ellos y cómo conectar ese valor a herramientas de IA
+              que respondan preguntas reales de negocio — sin complejidad innecesaria.
             </ScrollReveal>
             <ScrollReveal variant="fade" delay={260} as="div" className={styles.heroRow}>
               <a className="btn btnSolid" href="#contacto">
-                Cuéntame tu proyecto <span className="btnArrow">→</span>
+                Hablemos de tu negocio <span className="btnArrow">→</span>
               </a>
-              <a className="btn" href="#proyectos">
-                Ver casos de éxito
+              <a className="btn" href="#como-trabajo">
+                Cómo trabajo
               </a>
             </ScrollReveal>
           </div>
@@ -79,52 +86,52 @@ export default function Freelance({ projects }: FreelanceProps) {
           <div className="container">
             <p className="sectionLabel">Servicios</p>
             <h2 style={{ marginBottom: "3rem" }}>
-              Tres formas de trabajar juntos, según lo que necesite tu proyecto.
+              Un camino claro desde los datos que ya tienes hasta las decisiones que necesitas tomar.
             </h2>
 
             <div className={styles.services}>
               <ScrollReveal variant="rise-lg" as="div" className={styles.service}>
-                <span className={styles.serviceIndex}>01 — Producto</span>
-                <h3>Desarrollo full-stack a medida</h3>
+                <span className={styles.serviceIndex}>01 — Diagnóstico</span>
+                <h3>Auditoría de datos de negocio</h3>
                 <p>
-                  Aplicaciones web completas: desde la interfaz hasta la API y la
-                  infraestructura que la sostiene.
+                  Entendemos juntos qué datos existen, cómo se almacenan y si
+                  reflejan realmente lo que pasa en la empresa.
                 </p>
                 <ul>
-                  <li>Frontend con React, Next.js y TypeScript</li>
-                  <li>Backend con Node, Python o Django</li>
-                  <li>Integración y despliegue en AWS / Azure</li>
-                  <li>CI/CD con GitHub Actions</li>
+                  <li>Entrevista sobre flujos y fuentes de datos</li>
+                  <li>Mapeo de qué se guarda y qué se pierde</li>
+                  <li>Identificación de datos con valor oculto</li>
+                  <li>Informe de puntos de mejora prioritarios</li>
                 </ul>
               </ScrollReveal>
 
               <ScrollReveal variant="rise-lg" delay={80} as="div" className={styles.service}>
-                <span className={styles.serviceIndex}>02 — Datos</span>
-                <h3>Dashboards &amp; visualización de datos</h3>
+                <span className={styles.serviceIndex}>02 — Visibilidad</span>
+                <h3>Business Intelligence a medida</h3>
                 <p>
-                  Paneles a medida para convertir datos complejos — incluidos datos
-                  geoespaciales — en decisiones claras.
+                  Convertimos los datos relevantes en métricas claras y paneles
+                  que el equipo realmente usa para tomar decisiones.
                 </p>
                 <ul>
-                  <li>Paneles de analítica en tiempo real</li>
-                  <li>Visualización geoespacial (deck.gl)</li>
-                  <li>Diseño centrado en quien lo usa a diario</li>
-                  <li>Rendimiento con grandes volúmenes de datos</li>
+                  <li>Definición de KPIs con el equipo operativo</li>
+                  <li>Dashboards conectados a las fuentes existentes</li>
+                  <li>Automatización de informes recurrentes</li>
+                  <li>Formación para que el equipo sea autónomo</li>
                 </ul>
               </ScrollReveal>
 
               <ScrollReveal variant="rise-lg" delay={160} as="div" className={styles.service}>
-                <span className={styles.serviceIndex}>03 — Estrategia</span>
-                <h3>Consultoría técnica &amp; arquitectura</h3>
+                <span className={styles.serviceIndex}>03 — IA aplicada</span>
+                <h3>Decisiones impulsadas por IA</h3>
                 <p>
-                  Apoyo puntual o continuo en decisiones de arquitectura, estándares
-                  de equipo y procesos de desarrollo.
+                  Sobre una base de datos ordenada, incorporamos herramientas de IA
+                  que responden preguntas concretas del negocio.
                 </p>
                 <ul>
-                  <li>Revisión de arquitectura y stack</li>
-                  <li>Estándares de testing y buenas prácticas</li>
-                  <li>Mentoring y liderazgo técnico de equipos</li>
-                  <li>Auditoría de procesos CI/CD</li>
+                  <li>Agentes que consultan datos internos en lenguaje natural</li>
+                  <li>Alertas y recomendaciones automáticas</li>
+                  <li>Integración con las herramientas que ya usáis</li>
+                  <li>Sin fricción para el equipo existente</li>
                 </ul>
               </ScrollReveal>
             </div>
@@ -176,28 +183,28 @@ export default function Freelance({ projects }: FreelanceProps) {
         <section id="como-trabajo">
           <div className="container">
             <p className="sectionLabel">Cómo trabajo</p>
-            <h2 style={{ marginBottom: "3rem" }}>Un proceso simple, pensado para minimizar sorpresas.</h2>
+            <h2 style={{ marginBottom: "3rem" }}>Todo empieza con tres preguntas sobre tu negocio.</h2>
 
             <div className={styles.process}>
               <ScrollReveal variant="rise-lg" as="div" className={styles.processStep}>
                 <span className={styles.processNumber}>01</span>
-                <h3>Conversación inicial</h3>
-                <p>Entendemos el problema, el contexto y qué significa &quot;éxito&quot; para tu proyecto.</p>
+                <h3>¿Cómo tratáis y almacenáis vuestros datos?</h3>
+                <p>Entiendo los sistemas actuales, las fuentes de información y cómo fluyen los datos dentro de la empresa.</p>
               </ScrollReveal>
               <ScrollReveal variant="rise-lg" delay={60} as="div" className={styles.processStep}>
                 <span className={styles.processNumber}>02</span>
-                <h3>Propuesta &amp; alcance</h3>
-                <p>Defino alcance, tecnología y plazos, con hitos claros desde el principio.</p>
+                <h3>¿Son útiles para tomar decisiones?</h3>
+                <p>Evalúo si los datos disponibles reflejan lo que importa y si permiten visualizar las métricas que el equipo realmente necesita.</p>
               </ScrollReveal>
               <ScrollReveal variant="rise-lg" delay={120} as="div" className={styles.processStep}>
                 <span className={styles.processNumber}>03</span>
-                <h3>Desarrollo iterativo</h3>
-                <p>Entregas frecuentes, comunicación constante y espacio para ajustar sobre la marcha.</p>
+                <h3>¿Qué podemos mejorar con el menor esfuerzo?</h3>
+                <p>Identificamos los puntos donde una mejora pequeña genera el mayor impacto, evitando cambios que generen fricción en la organización.</p>
               </ScrollReveal>
               <ScrollReveal variant="rise-lg" delay={180} as="div" className={styles.processStep}>
                 <span className={styles.processNumber}>04</span>
-                <h3>Entrega &amp; soporte</h3>
-                <p>Despliegue, documentación y acompañamiento posterior si lo necesitas.</p>
+                <h3>Implementación y acompañamiento</h3>
+                <p>Ejecuto los cambios de forma cercana y progresiva, asegurando que el equipo entiende y adopta lo que construimos juntos.</p>
               </ScrollReveal>
             </div>
           </div>
@@ -208,14 +215,18 @@ export default function Freelance({ projects }: FreelanceProps) {
           <div className="container">
             <ScrollReveal variant="rise-lg" style={{ maxWidth: "56ch" }}>
               <p className="sectionLabel">Sobre mí</p>
-              <h2>Background en psicología, oficio en ingeniería.</h2>
+              <h2>Formado en psicología. Orientado al dato.</h2>
               <p style={{ marginTop: "1.5rem" }}>
-                Antes de dedicarme al desarrollo de software me formé en psicología,
-                y esa perspectiva sigue presente en cómo trabajo: escuchar primero,
-                entender a quién va dirigido lo que construyo, y traducir eso en
-                decisiones técnicas concretas. Más de cinco años desarrollando
-                producto end-to-end — desde interfaces hasta infraestructura — para
-                equipos internacionales.
+                Mi forma de trabajar es personal y cercana. Antes de proponer nada,
+                escucho: quiero entender el negocio, cómo trabaja el equipo y qué
+                decisiones se toman cada día. Esa combinación de escucha activa y
+                criterio técnico me permite detectar dónde los datos pueden mejorar
+                la operativa sin imponer cambios que el equipo no vaya a adoptar.
+              </p>
+              <p style={{ marginTop: "1rem" }}>
+                Me especializo en empresas medianas donde no hacen falta arquitecturas
+                extraordinariamente complejas, sino claridad: saber qué datos importan,
+                tenerlos accesibles y usarlos para tomar mejores decisiones.
               </p>
             </ScrollReveal>
           </div>
@@ -226,13 +237,13 @@ export default function Freelance({ projects }: FreelanceProps) {
           <div className="container">
             <p className="sectionLabel">Trabajemos juntos</p>
             <ScrollReveal variant="rise-lg" as="h2" className={styles.contactTitle}>
-              ¿Tienes un proyecto
+              ¿Tus datos podrían
               <br />
-              <em>en mente</em>?
+              trabajar más <em>para ti</em>?
             </ScrollReveal>
             <ScrollReveal variant="rise-lg" delay={120} as="p" className="lede" style={{ marginTop: "1.5rem" }}>
-              Cuéntame qué necesitas y te respondo en menos de 48 horas para ver si
-              puedo ayudarte.
+              Cuéntame cómo gestionáis la información en tu empresa y vemos juntos
+              si hay margen de mejora. Sin compromiso, y sin jerga técnica.
             </ScrollReveal>
             <ScrollReveal variant="rise-lg" delay={220} as="div" className={styles.contactRow}>
               <a className="btn btnSolid" href="mailto:pablo.villacanas@gmail.com">

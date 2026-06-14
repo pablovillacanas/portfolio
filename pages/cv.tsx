@@ -1,8 +1,10 @@
 import Head from "next/head";
+import Image from "next/image";
 import Link from "next/link";
 import styles from "@/styles/Cv.module.css";
 import ScrollReveal from "@/components/ScrollReveal";
 import ScrollProgress from "@/components/ScrollProgress";
+import DevNav from "@/components/DevNav";
 
 export default function CV() {
   return (
@@ -16,6 +18,7 @@ export default function CV() {
         <meta name="robots" content="noindex, nofollow" />
       </Head>
 
+      <DevNav />
       <div className="bgGrid" />
       <ScrollProgress />
 
@@ -33,6 +36,9 @@ export default function CV() {
       <main>
         {/* ===================== HERO ===================== */}
         <section className={styles.hero}>
+          <div className={styles.heroPhoto}>
+            <Image src="/portrait.png" alt="Pablo Domínguez Villacañas" fill priority style={{ objectFit: "cover", objectPosition: "top center" }} />
+          </div>
           <div className="container">
             <ScrollReveal variant="fade" as="p" className={styles.heroKicker}>
               Frontend Team Lead · Full-Stack Developer
@@ -51,7 +57,7 @@ export default function CV() {
             </ScrollReveal>
             <ScrollReveal variant="fade" delay={260} as="div" className={styles.heroMeta}>
               <div>
-                <strong>El Masnou, España</strong>
+                <strong>Terrassa, España</strong>
                 Remoto · Europa / CET
               </div>
               <div>

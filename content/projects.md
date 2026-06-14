@@ -46,7 +46,7 @@ Campos por proyecto:
 ## Dashboards de analitica para energetica
 
 - titulo: Dashboards de analitica de datos
-- cliente: Gran compania energetica (via DEUS) - confirmar si se puede nombrar
+- cliente: Shell PLC
 - periodo: mar 2022 - presente
 - estado: activo
 - rol: Frontend Team Lead
@@ -87,6 +87,27 @@ Campos por proyecto:
     Pendiente revisar que detalles son publicos sin romper NDA con Opseeker.
 
 ---
+
+---
+
+## Agente IA - Verificación de Presentaciones
+
+- titulo: Agente IA - Verificación de Presentaciones
+- cliente: Confidencial
+- periodo: jul 2025 - sep 2025
+- estado: finalizado
+- rol: AI Engineer / Developer
+- stack: Python, LLM (Claude/GPT)
+- descripcion: >
+    Desarrollo de un agente de IA capaz de verificar presentaciones de PowerPoint
+    contra las reglas de diferentes departamentos antes de ser presentadas al cliente.
+    El agente automatiza decenas de checks por departamento, asegurando la calidad
+    y coherencia de los materiales de presentación.
+- impacto: >
+    La verificación pasó de ser un proceso de dos o tres días a completarse
+    en un par de horas.
+- mostrar_en_portfolio: si
+- notas: |
 
 <!--
 Plantilla para nuevo proyecto: copia el bloque de abajo, rellena los campos

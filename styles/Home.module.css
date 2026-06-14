@@ -9,6 +9,20 @@
 .inner {
   max-width: 36rem;
 }
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 1.25rem;
+  border: 1px solid var(--border-strong);
+  position: relative;
+  flex-shrink: 0;
+}
+.avatar img {
+  object-fit: cover;
+  object-position: top center;
+}
 .inner h1 {
   font-size: clamp(2rem, 6vw, 3.2rem);
   font-style: italic;
