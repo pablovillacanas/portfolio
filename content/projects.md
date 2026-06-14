@@ -10,7 +10,7 @@ Campos por proyecto:
 - `titulo`: nombre corto del proyecto / cliente
 - `cliente`: nombre del cliente o "Personal" / "Confidencial" si no se puede mencionar
 - `periodo`: `MES AAAA - MES AAAA` o `MES AAAA - Presente`
-- `estado`: `activo` | `pausado` | `finalizado`
+- `estado`: `activo` | `en mantenimiento` | `pausado` | `finalizado`
 - `rol`: tu rol en el proyecto
 - `stack`: lista separada por comas
 - `descripcion`: 2-4 frases sobre que se hizo
@@ -70,8 +70,8 @@ Campos por proyecto:
 
 - titulo: Chat embebible y programable
 - cliente: Opseeker
-- periodo: oct 2022 - presente
-- estado: activo
+- periodo: oct 2022 - oct 2025
+- estado: en mantenimiento
 - rol: Full-stack developer (freelance)
 - stack: Next.js, AWS (Lambda, S3, CloudFront, API Gateway, Cognito), GitHub Actions, Jira
 - descripcion: >
@@ -88,11 +88,11 @@ Campos por proyecto:
 
 ---
 
-## Agente IA - Verificación de Presentaciones
+## Agente IA - Verificación de Presentaciones de Venta
 
-- titulo: Agente IA - Verificación de Presentaciones
-- cliente: Beway
-- periodo: jul 2025 - sep 2025
+- titulo: Agente IA - Verificación de Presentaciones de Ventas
+- cliente: Confidencial
+- periodo: jul 2025 - nov 2025
 - estado: finalizado
 - rol: AI Engineer / Developer
 - stack: Python, LLM (Claude/GPT)

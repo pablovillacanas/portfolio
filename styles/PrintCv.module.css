@@ -91,7 +91,7 @@
   padding: 1.1rem 1.1rem 1.25rem;
   display: flex;
   flex-direction: column;
-  gap: 1.1rem;
+  gap: 0.75rem;
   flex: 1;
 }
 
@@ -222,8 +222,14 @@
   padding: 1.4rem 1.6rem 1.4rem 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 1.1rem;
+  gap: 0.65rem;
   background: #ffffff;
+}
+
+/* Override global section padding */
+.main section {
+  padding: 1rem 0;
+  position: static;
 }
 
 /* Main section heading */
@@ -248,8 +254,8 @@
 
 /* Experience */
 .expItem {
-  padding-bottom: 0.8rem;
-  margin-bottom: 0.8rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
   border-bottom: 1px solid #f0eeea;
 }
 
@@ -313,8 +319,8 @@
 
 /* Projects */
 .projectItem {
-  padding-bottom: 0.65rem;
-  margin-bottom: 0.65rem;
+  padding-bottom: 0.4rem;
+  margin-bottom: 0.4rem;
   border-bottom: 1px solid #f0eeea;
 }
 
@@ -375,8 +381,8 @@
 .eduGrid {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: 0.8rem;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
 }
 
 .eduItem {

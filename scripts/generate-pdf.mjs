@@ -11,7 +11,6 @@ import puppeteer from 'puppeteer';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { existsSync } from 'fs';
-import { createServer } from 'net';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -25,14 +24,14 @@ const CV_URL = `${BASE_URL}/print-cv`;
 const OUTPUT = path.join(ROOT, 'public', 'CV-PabloVillacanas.pdf');
 
 async function isPortOpen(port) {
+  const { default: http } = await import('http');
   return new Promise((resolve) => {
-    const s = createServer();
-    s.once('error', () => resolve(true));
-    s.once('listening', () => {
-      s.close();
-      resolve(false);
+    const req = http.get(`http://localhost:${port}/`, (res) => {
+      res.resume();
+      resolve(true);
     });
-    s.listen(port, '127.0.0.1');
+    req.on('error', () => resolve(false));
+    req.setTimeout(3000, () => { req.destroy(); resolve(false); });
   });
 }
 
