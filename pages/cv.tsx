@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import Link from 'next/link';
 import styles from '@/styles/Cv.module.css';
 import ScrollReveal from '@/components/ScrollReveal';
 import ScrollProgress from '@/components/ScrollProgress';
@@ -25,9 +24,6 @@ export default function CV() {
 			<ScrollProgress />
 
 			<nav className='nav'>
-				<Link href='/' className='navMark'>
-					Pablo Villacañas
-				</Link>
 				<div className='navLinks'>
 					<a href='#experiencia'>Experiencia</a>
 					<a href='#skills'>Skills</a>
@@ -68,6 +64,15 @@ export default function CV() {
 							producto end-to-end para compañías internacionales — desde paneles
 							de datos en tiempo real hasta arquitecturas cloud completas.
 						</ScrollReveal>
+						<div className={styles.heroCta}>
+							<a
+								href='/CV-PabloVillacanas.pdf'
+								download
+								className='btn btnSolid'
+							>
+								Descargar CV
+							</a>
+						</div>
 						<ScrollReveal
 							variant='fade'
 							delay={260}
@@ -86,15 +91,6 @@ export default function CV() {
 								<strong>AWS · Azure</strong>
 								Docker · Kubernetes · CI/CD
 							</div>
-						</ScrollReveal>
-						<ScrollReveal variant='fade' delay={360} as='div' className={styles.heroCta}>
-							<a
-								href='/CV-PabloVillacanas.pdf'
-								download
-								className='btnSolid'
-							>
-								Descargar CV
-							</a>
 						</ScrollReveal>
 					</div>
 					<div className={styles.heroScroll}>Desplázate</div>

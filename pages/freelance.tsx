@@ -44,9 +44,6 @@ export default function Freelance({ projects }: FreelanceProps) {
       <ScrollProgress />
 
       <nav className="nav">
-        <Link href="/" className="navMark">
-          Pablo Villacañas
-        </Link>
         <div className="navLinks">
           <a href="#servicios">Servicios</a>
           <a href="#proyectos">Proyectos</a>

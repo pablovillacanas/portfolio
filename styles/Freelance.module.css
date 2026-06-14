@@ -46,7 +46,7 @@
   }
 }
 .heroContent {
-  padding-left: clamp(18rem, 34vw, 28rem);
+  padding-left: 15rem;
 }
 @media (max-width: 760px) {
   .heroContent {

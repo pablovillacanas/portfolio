@@ -46,9 +46,6 @@ export default function AgenteIAVerificacion() {
       <ScrollProgress />
 
       <nav className="nav">
-        <Link href="/" className="navMark">
-          Pablo Villacañas
-        </Link>
         <div className="navLinks">
           <Link href="/freelance#proyectos">Proyectos</Link>
           <Link href="/freelance#contacto">Contacto</Link>
