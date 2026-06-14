@@ -2,7 +2,7 @@ import type { AppProps } from "next/app";
 import { Analytics } from "@vercel/analytics/react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import "@/styles/globals.css";
 
 const MAIN_ROUTES = ["/", "/cv", "/freelance", "/print-cv"];
@@ -26,6 +26,11 @@ export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const prevPath = useRef(router.pathname);
   const dir = useRef(0);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleStart = (url: string) => {
@@ -48,7 +53,7 @@ export default function App({ Component, pageProps }: AppProps) {
           key={router.pathname}
           custom={dir.current}
           variants={variants}
-          initial="initial"
+          initial={mounted ? "initial" : false}
           animate="animate"
           exit="exit"
           transition={{ duration: 0.38, ease: [0.32, 0.72, 0, 1] }}
