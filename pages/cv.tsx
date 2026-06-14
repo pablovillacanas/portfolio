@@ -47,7 +47,7 @@ export default function CV() {
 							style={{ objectFit: 'cover', objectPosition: 'top center' }}
 						/>
 					</div>
-					<div className='container'>
+					<div className={`container ${styles.heroContent}`}>
 						<ScrollReveal variant='fade' as='p' className={styles.heroKicker}>
 							Frontend Team Lead · Full-Stack Developer
 						</ScrollReveal>
@@ -86,6 +86,15 @@ export default function CV() {
 								<strong>AWS · Azure</strong>
 								Docker · Kubernetes · CI/CD
 							</div>
+						</ScrollReveal>
+						<ScrollReveal variant='fade' delay={360} as='div' className={styles.heroCta}>
+							<a
+								href='/CV-PabloVillacanas.pdf'
+								download
+								className='btnSolid'
+							>
+								Descargar CV
+							</a>
 						</ScrollReveal>
 					</div>
 					<div className={styles.heroScroll}>Desplázate</div>

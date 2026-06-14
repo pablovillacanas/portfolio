@@ -60,7 +60,7 @@ export default function Freelance({ projects }: FreelanceProps) {
           <div className={styles.heroPhoto}>
             <Image src="/portrait.png" alt="Pablo Domínguez Villacañas" fill priority style={{ objectFit: "cover", objectPosition: "top center" }} />
           </div>
-          <div className="container">
+          <div className={`container ${styles.heroContent}`}>
             <ScrollReveal variant="fade" as="p" className={styles.heroKicker}>
               Consultor de datos e IA · Empresas medianas
             </ScrollReveal>
