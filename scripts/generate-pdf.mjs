@@ -98,6 +98,9 @@ async function main() {
       path: OUTPUT,
       format: 'A4',
       printBackground: true,
+      // Zero on all sides — must match @page in PrintCv.module.css.
+      // A page margin insets position:fixed content too, which stops
+      // the full-bleed sidebar short of the true page edges.
       margin: { top: 0, right: 0, bottom: 0, left: 0 },
     });
 

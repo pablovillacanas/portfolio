@@ -48,6 +48,15 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+@media print {
+  /* Without this, the dark theme background shows through wherever a
+     printed page's content is shorter than the physical page (e.g.
+     print-cv's last page). */
+  body {
+    background: #ffffff;
+  }
+}
+
 img {
   max-width: 100%;
   display: block;

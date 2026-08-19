@@ -222,14 +222,19 @@
   padding: 1.4rem 1.6rem 1.4rem 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
   background: #ffffff;
 }
 
-/* Override global section padding */
+/* Override global section padding — spacing between apartados comes
+   only from this margin, not from a flex gap, to avoid doubling it. */
 .main section {
-  padding: 1rem 0;
+  padding: 0;
+  margin-top: 1.1rem;
   position: static;
+}
+
+.main section:first-child {
+  margin-top: 0;
 }
 
 /* Main section heading */
@@ -471,13 +476,71 @@
   }
 
   .page {
+    display: block;
     width: 100%;
     min-height: 100vh;
     box-shadow: none;
+  }
+
+  /* Repeat the sidebar identically on every printed page instead of
+     letting the grid stretch its background across page breaks
+     (Chromium fragments a multi-page grid row unevenly, leaving gaps).
+     @page must stay at margin: 0 for this — giving the page itself a
+     top/bottom margin insets position:fixed elements too, and trying
+     to cancel that with a negative top/taller height triggers a worse
+     Chromium bug: part of the next page's photo bleeds into the
+     bottom of the previous page. A clean full-bleed sidebar on every
+     page beats extra breathing room at the page-break seam, so that's
+     the trade-off made here — see .main below for what that costs. */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 210px;
+    height: 297mm;
+  }
+
+  .main {
+    margin-left: 210px;
+    /* Gives the very top of page 1 and very bottom of the last page
+       breathing room — a box's own padding only applies at its first
+       and last fragment, not at internal page-break seams, so this
+       alone doesn't help wherever content overflows naturally onto a
+       new page (see .forcePageBreak below for that). */
+    padding-top: 14mm;
+    padding-bottom: 14mm;
+  }
+
+  /* Chromium doesn't repeat a box's padding at an internal page-break
+     seam, so a section that merely happens to overflow onto the next
+     page (e.g. "Proyectos destacados" currently splitting mid-list)
+     butts up against the physical edge with no margin — and there's
+     no reliable content-agnostic CSS fix for that (see the .sidebar
+     comment above re: the negative-offset attempt that broke worse).
+     Forcing the break ourselves sidesteps the problem: this section's
+     top padding is then just normal, unfragmented box padding, since
+     the section starts fresh at the top of its own page.
+     NOTE: this is tied to current content length. If Experiencia
+     grows enough to no longer fit on page 1 with Perfil, or Proyectos
+     grows enough to need more than page 2, re-check the generated PDF
+     and move this class to whichever section actually starts the
+     overflow page. */
+  .forcePageBreak {
+    break-before: page;
+    padding-top: 14mm;
+  }
+
+  .expItem,
+  .projectItem,
+  .eduItem,
+  .certItem {
+    break-inside: avoid;
   }
 }
 
 @page {
   size: A4;
+  /* Must stay 0 — see the .sidebar comment above for why a page
+     margin here isn't compatible with a full-bleed fixed sidebar. */
   margin: 0;
 }
